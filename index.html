@@ -1,54 +1,21 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-
   <title>Hongcheng Jiang's Homepage</title>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="description" content="Hongcheng Jiang is currently a Phd student at UMKC">
-  <meta name="keywords" content="Hongcheng Jiang, UMKC, Computer, Vision">
+  <meta name="description" content="Hongcheng Jiang - AI/LLM Engineer specializing in RAG systems, multi-agent pipelines, and clinical AI. PhD ECE UMKC.">
+  <meta name="keywords" content="Hongcheng Jiang, LLM Engineer, RAG, GraphRAG, LangGraph, Clinical AI, UMKC">
   <meta name="author" content="Hongcheng Jiang" />
-
   <link rel="stylesheet" href="w3.css">
-
   <style>
   .w3-sidebar a {font-family: "Roboto", sans-serif}
   body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </style>
-
   <link rel="icon" type="image/png" href="images/icons.png">
-  <!--
-  <script src="jquery.min.js"></script>
-  <script>
-  $(document).ready(function(){
-    // Add smooth scrolling to all links
-    $("a").on('click', function(event) {
-      // Make sure this.hash has a value before overriding default behavior
-      if (this.hash !== "") {
-        // Prevent default anchor click behavior
-        event.preventDefault();
-        // Store hash
-        var hash = this.hash;
-        // Using jQuery's animate() method to add smooth page scroll
-        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-        $('html, body').animate({
-          scrollTop: $(hash).offset().top
-        }, 800, function(){
-          // Add hash (#) to URL when done scrolling (default click behavior)
-          window.location.hash = hash;
-        });
-      } // End if
-    });
-  });
-  </script>
-  //-->
-
 </head>
-
 
 <body class="w3-content" style="max-width:1000px">
 
@@ -58,7 +25,15 @@
     <h3><b>&nbsp;</b></h3>
   </div>
   <div class="w3-padding-64 w3-text-light-grey w3-large" style="font-weight:bold">
-    <p> <a href="#home" class="w3-bar-item w3-button">Home</a> <a href="#news" class="w3-bar-item w3-button">News</a> <a href="#projects" class="w3-bar-item w3-button">Projects&nbsp;</a> <a href="#talks" class="w3-bar-item w3-button">Teaching</a> <a href="#publications" class="w3-bar-item w3-button">Research</a> <a href="#service" class="w3-bar-item w3-button">Services</a> <a href="#award" class="w3-bar-item w3-button">Resume</a> </p>
+    <p>
+      <a href="#home" class="w3-bar-item w3-button">Home</a>
+      <a href="#news" class="w3-bar-item w3-button">News</a>
+      <a href="#projects" class="w3-bar-item w3-button">Projects&nbsp;</a>
+      <a href="#talks" class="w3-bar-item w3-button">Teaching</a>
+      <a href="#publications" class="w3-bar-item w3-button">Research</a>
+      <a href="#service" class="w3-bar-item w3-button">Services</a>
+      <a href="#award" class="w3-bar-item w3-button">Resume</a>
+    </p>
     <p>&nbsp;</p>
   </div>
 </nav>
@@ -66,8 +41,7 @@
 <!-- Top menu on small screens -->
 <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
   <div class="w3-bar-item w3-padding-24">Hongcheng</div>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right"  style="font-stretch: extra-expanded;" onclick="w3_open()"><b>≡</b></a>
-  </div>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" style="font-stretch: extra-expanded;" onclick="w3_open()"><b>≡</b></a>
 </header>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -79,240 +53,181 @@
   <!-- Push down content on small screens -->
   <div class="w3-hide-large" style="margin-top:83px"></div>
 
-<!-- The Home Section -->
-    <div class="w3-container w3-center w3-padding-32" id="home">
-      <img style="width: 80%;max-width: 320px" alt="profile photo" src="images/me.jpg">
-      <h1>Hongcheng Jiang</h1>
-      <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">&nbsp;I hold a <strong>Ph.D.&nbsp;</strong> in <strong>Electrical and Computer Engineering</strong> at the <a href="https://www.umkc.edu/news/posts/tags/school-of-computing-and-engineering.html"><strong>School of Computing and Engineering</strong></a>, <strong><a href="https://www.umkc.edu/">University of Missouri-Kansas City (UMKC)</a></strong>, under the mentorship of Prof. <strong><a href="https://sse.umkc.edu/profiles/zhiqiang-chen.html">ZhiQiang Chen</a></strong>. My expertise spans <strong>LLM Engineering</strong>, <strong>RAG systems</strong>, and <strong>clinical AI</strong>, with hands-on experience building production-grade multi-agent pipelines, fine-tuning language models, and deploying scalable AI services on AWS.&nbsp;</p>
-<p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">Currently, I work as a <strong>Machine Learning Engineer</strong> at <strong><a href="https://www.nexttiertech.com/">NextTier</a></strong>, where I design and deploy production LLM systems for clinical data integration, including RAG pipelines, multi-agent orchestration, and LLM safety layers. I have published 9 papers at CVPR, IEEE JSTARS, IEEE SMC, and WACV.&nbsp;&nbsp;</p>
-        <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">I hold a Master’s degree in Computer Science from UMKC, where I refined my skills in <strong>algorithm development</strong>, <strong>statistical analysis</strong>, and <strong>software engineering</strong>, providing a robust foundation for my career in <strong>machine learning</strong> and <strong>AI-driven technologies</strong>.</p>
-<p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">&nbsp;</p>
-        <p style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">&nbsp;</p>
-<p class="w3-center">
-      <a href="mailto:hjq44@mail.umkc.edu">Email</a> &nbsp/&nbsp
-      <a href="https://scholar.google.com/citations?hl=en&user=NPk5cT0AAAAJ">Google Scholar</a> &nbsp/&nbsp
-      <a href="https://www.linkedin.com/in/hongcheng-jiang-a31860181/"> LinkedIn </a> &nbsp/&nbsp
-      <a href="https://github.com/jianghongcheng"> Github </a>
-      </p>
-        </tbody></table>
-  </div>
+  <!-- The Home Section -->
+  <div class="w3-container w3-center w3-padding-32" id="home">
+    <img style="width: 80%;max-width: 320px" alt="profile photo" src="images/me.jpg">
+    <h1>Hongcheng Jiang</h1>
 
-<!-- The News Section -->
-<div class="w3-container w3-light-grey w3-padding-32" id="news">
-   <h2>News</h2>
-  <p><li>05/2025,  my personal website has moved to <strong><a href=", my personal website has moved to https://jianghongcheng.github.io/">https://jianghongcheng.github.io/</a></strong>.&nbsp;</li>
-	  	   <li>05/2025,&nbsp;I have graduated with a <strong>Ph.D. in Electrical and Computer Engineering.</strong>&nbsp;</li>
-	   <li>04/2025, 1 paper has beed accepted by&nbsp;<strong><a href="https://www.sciencedirect.com/journal/infrared-physics-and-technology">Infrared Physics and Technology</a></strong>.&nbsp;</li>
-	    <li> 04/2025, 1 paper has been  under revision by &nbsp;<strong><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=4609443">IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</a></strong>.&nbsp;</li>
-  <li> 01/2025, 1 paper has been  under peer review by &nbsp;<strong><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=4609443">IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</a></strong>.&nbsp;</li>
-	  
-	  <li>01/2025, 1 paper&nbsp;has been accepted by <a href="https://wacv2025.thecvf.com/"><strong>WACV 2025</strong></a>.</li>
-      <li>11/2024, 1 paper has beed under peer review by&nbsp;<strong><a href="https://www.sciencedirect.com/journal/infrared-physics-and-technology">Infrared Physics and Technology</a></strong>.&nbsp;</li>
-      <li>04/2024, 1 paper&nbsp;has been accepted by <a href="https://cvpr.thecvf.com/Conferences/2024"><strong>CVPR 2024</strong></a>.</li>
-      <li> 08/2022, 1 paper has been accepted by <a href="https://2022.ieeeicip.org/"><strong>ICIP 2022</strong></a>. </li>
-      <li>09/2020, 1&nbsp;paper has been accepted by <strong><a href="https://link.springer.com/journal/13042">International Journal of Machine Learning and Cybernetics</a></strong>.</li>
-  </ul>
+    <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
+    <strong>I build production LLM systems with 0.98 RAGAS accuracy and sub-2.6s latency.</strong><br><br>
+    I am an <strong>AI/LLM Engineer</strong> specializing in <strong>RAG systems</strong>, <strong>multi-agent pipelines</strong>, and <strong>clinical AI</strong>. I hold a <strong>Ph.D. in Electrical and Computer Engineering</strong> from the <a href="https://www.umkc.edu/"><strong>University of Missouri-Kansas City (UMKC)</strong></a> (GPA: 4.0), under the mentorship of Prof. <a href="https://sse.umkc.edu/profiles/zhiqiang-chen.html"><strong>ZhiQiang Chen</strong></a>.
     </p>
-    <!--
-      <p><li> 01/2021, I will give a talk about AdderNet at <a href="https://haet2021.github.io/speakers.html">HAET ICLR 2021 workshop</a>.</li></p>
-      <p><li> 12/2020, two papers have been accepted by <a href="https://aaai.org/Conferences/AAAI-21/">AAAI 2021</a>.</li></p>
-      <p><li> 11/2020, I accepted the invitation to serve as an Area Chair for <a href="https://icml.cc/Conferences/2021">ICML 2021</a>.</li></p>
-      <p><li> 09/2020, six papers have been accepted by <a href="https://nips.cc/Conferences/2020">NeurIPS 2020</a>.</li></p>
-      <p><li> 07/2020, one paper has been accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385">IEEE TNNLS</a>.</li></p>
-      <p><li> 07/2020, one paper has been accepted by <a href="https://eccv2020.eu/accepted-papers/">ECCV 2020</a>.</li></p>
-      <p><li> 06/2020, two papers have been accepted by <a href="https://icml.cc/Conferences/2020/AcceptedPapersInitial">ICML 2020</a>.</li></p>
-      <p><li> 07/2020, one paper has been accepted by <a href="http://2020.acmmm.org/accepted-paper-id-list.txt">ACM MM 2020</a>.</li></p>
-      <p><li> 02/2020, seven papers have been accepted by <a href="http://openaccess.thecvf.com/menu.py">CVPR 2020</a>.</li></p>
-      <p><li> 01/2020, one paper has been accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385">IEEE TNNLS</a>.</li></p>
-      <p><li> 11/2019, three papers have been accepted by <a href="https://aaai.org/Conferences/AAAI-20/wp-content/uploads/2020/01/AAAI-20-Accepted-Paper-List.pdf">AAAI 2020</a>.</li></p>
-      -->
 
+    <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
+    Currently, I work as a <strong>Machine Learning Engineer</strong> at <strong><a href="https://www.nexttiertech.com/">NextTier</a></strong>, where I design and deploy production LLM systems for clinical AI, including <strong>RAG pipelines</strong> (RAGAS Answer Relevancy 0.98, P95 latency &lt;2.6s), <strong>LangGraph multi-agent orchestration</strong>, <strong>QLoRA fine-tuning</strong>, and <strong>LLM safety layers</strong>. I deploy services on <strong>AWS EC2</strong> with live public APIs, <strong>supporting clinical decision-making and multi-document reasoning.</strong>
+    </p>
+
+    <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
+    I have published <strong>9 papers</strong> at top venues including <strong>CVPRW</strong>, <strong>WACVW</strong>, <strong>IEEE JSTARS</strong>, <strong>IEEE SMC</strong>, and <strong>Infrared Physics &amp; Technology</strong>, with research spanning computer vision, image restoration, and multimodal AI.
+    </p>
+
+    <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
+    <strong>Live Demos (Production Systems):</strong><br>
+    &nbsp;&nbsp;&#8250; <a href="http://3.151.59.179:8000/"><strong>Clinical AI Research Assistant</strong></a> — multi-agent GraphRAG system (try PDF upload)<br>
+    &nbsp;&nbsp;&#8250; <a href="http://3.151.59.179:8001/"><strong>Medical VLM Report Assistant</strong></a> — CT report generation (real-time inference)
+    </p>
+
+    <p class="w3-center">
+      <a href="mailto:hjq44@umkc.edu">Email</a> &nbsp/&nbsp
+      <a href="https://scholar.google.com/citations?hl=en&user=NPk5cT0AAAAJ">Google Scholar</a> &nbsp/&nbsp
+      <a href="https://www.linkedin.com/in/hongcheng-jiang-a31860181/">LinkedIn</a> &nbsp/&nbsp
+      <a href="https://github.com/jianghongcheng">GitHub</a>
+    </p>
   </div>
-<!-- The Projects Section -->
+
+  <!-- The News Section -->
+  <div class="w3-container w3-light-grey w3-padding-32" id="news">
+    <h2>News</h2>
+    <ul>
+      <li>04/2026, 1 paper has been accepted by <strong><a href="https://pbvs-workshop.github.io/">CVPRW (PBVS) 2026</a></strong>.</li>
+      <li>03/2026, Deployed two production AI systems on AWS EC2: <a href="http://3.151.59.179:8000/">Clinical AI Research Assistant</a> and <a href="http://3.151.59.179:8001/">Medical VLM Report Assistant</a>.</li>
+      <li>10/2025, 1 paper has been accepted by <strong><a href="https://www.ieeesmc2025.org/">IEEE SMC 2025</a></strong>.</li>
+      <li>05/2025, I have graduated with a <strong>Ph.D. in Electrical and Computer Engineering.</strong></li>
+      <li>05/2025, 1 paper has been accepted by <strong><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=4609443">IEEE JSTARS</a></strong>.</li>
+      <li>04/2025, 1 paper has been accepted by <strong><a href="https://www.sciencedirect.com/journal/infrared-physics-and-technology">Infrared Physics and Technology</a></strong>.</li>
+      <li>01/2025, 1 paper has been accepted by <a href="https://wacv2025.thecvf.com/"><strong>WACVW 2025</strong></a>.</li>
+      <li>04/2024, 1 paper has been accepted by <strong><a href="https://pbvs-workshop.github.io/history/2024/index.html">CVPRW (PBVS) 2024</a></strong>.</li>
+      <li>08/2022, 1 paper has been accepted by <a href="https://2022.ieeeicip.org/"><strong>ICIP 2022</strong></a>.</li>
+      <li>09/2020, 1 paper has been accepted by <strong><a href="https://link.springer.com/journal/13042">International Journal of Machine Learning and Cybernetics</a></strong>.</li>
+    </ul>
+  </div>
+
+  <!-- The Projects Section -->
   <div class="w3-container w3-padding-32" id="projects">
     <h2>Recent Projects</h2>
-    <p class="w3-justify"> My recent work focuses on production LLM systems for clinical AI. Key projects:<br><br>
-<strong><a href="http://3.151.59.179:8000/">Clinical AI Research Assistant</a></strong> (<a href="https://github.com/jianghongcheng/clinical-ai-assistant">GitHub</a>): GraphRAG + LangGraph multi-agent pipeline for radiology papers; RAGAS Answer Relevancy 0.98 / Context Recall 1.00; deployed on AWS EC2 with React frontend, Guardrails, and LLM monitoring.<br><br>
-<strong><a href="http://3.151.59.179:8001/">Medical VLM Report Assistant</a></strong> (<a href="https://github.com/jianghongcheng/medical-vlm-assistant">GitHub</a>): CT report generation pipeline using Stanford Merlin (Nature 2026, 3D CT VLM) + RAG + GPT-4o; ICD-10 coding and risk stratification; deployed on AWS EC2.</p>
-    <p class="w3-justify">&nbsp;</p>
-    <!--
-        <p class="w3-justify">
-        <a style="color: #447ec9" href="https://github.com/huawei-noah/AdderNet">Project Page</a> | <a style="color: #447ec9" href="https://arxiv.org/pdf/2101.10015.pdf">Hardware Implementation</a>
--->
-        </p>
+    <p class="w3-justify">My recent work focuses on <strong>production-grade LLM systems</strong> for clinical AI, covering <strong>retrieval, reasoning, and deployment</strong>. Key projects:<br><br>
 
+    <strong><a href="http://3.151.59.179:8000/">Clinical AI Research Assistant</a></strong> (<a href="https://github.com/jianghongcheng/clinical-ai-assistant">GitHub</a>): GraphRAG + LangGraph multi-agent pipeline for radiology papers; RAGAS Answer Relevancy 0.98 / Context Recall 1.00; deployed on AWS EC2 with React frontend, Guardrails, and LLM monitoring.<br><br>
 
-<!--
-    <h4><li>GhostNet on MindSpore: SOTA Lightweight CV Networks</li></h4>
-        <img style="width:96%;" src="images/GhostNet.png"> 
-        <p class="w3-justify">
-        <a style="color: #447ec9" href="https://live.huawei.com/huaweiconnect/meeting/cn/5872.html">Huawei Connect (HC) 2020</a> | <a style="color: #447ec9" href="https://www.mindspore.cn/resources/hub">MindSpore Hub</a>
-        </p>
-        <p class="w3-justify">
-        The initial verison of GhostNet was accepted by CVPR 2020, which achieved SOTA performance on ImageNet: <span style="color:red">75.7%</span> top1 acc with only <span style="color:red">226M FLOPS</span>. In the current version, we release a series computer vision models (e.g. int8 quantization, detection, and larger networks) on <strong>MindsSpore 1.0</strong> and <strong>Mate 30 Pro (Kirin 990)</strong>.
-        </p> 
+    <strong><a href="http://3.151.59.179:8001/">Medical VLM Report Assistant</a></strong> (<a href="https://github.com/jianghongcheng/medical-vlm-assistant">GitHub</a>): CT report generation pipeline using Stanford Merlin (Nature 2026, 3D CT VLM) + RAG + GPT-4o; ICD-10 coding and risk stratification; deployed on AWS EC2 with Docker and nginx.
+    </p>
 
-        <h4><li>AI on Ascend: Real-Time Video Style Transfer</li></h4>
-        <img style="width:32%;" src="images/atlas200.png"> &nbsp&nbsp <img style="width:60%;" src="images/video.gif">
-        <p class="w3-justify">
-        <a style="color: #447ec9" href="https://www.huaweicloud.com/intl/en-us/HDC.Cloud.html">Huawei Developer Conference (HDC) 2020</a> | <a style="color: #447ec9" href="https://developer.huaweicloud.com/exhibition/Atlas_neural_style.html">Online Demo</a>
-        </p>
-        <p class="w3-justify">
-        This project aims to develop a video style transfer system on the <strong>Huawei Atlas 200 DK AI developer Kit</strong>. The latency of the original model for processing one image is about <span style="color:red">630ms</span>. After accelerating it using our method, the lantency now is about <span style="color:red">40ms</span>. 
-        </p>  
--->
-
+    <p class="w3-justify">
+    <strong>Technical Skills:</strong> RAG, GraphRAG, LangGraph, Multi-Agent Systems, QLoRA Fine-tuning, RAGAS, Guardrails, FastAPI, Qdrant, PyTorch, LangChain, HuggingFace, AWS EC2, Docker, nginx, Presidio
+    </p>
   </div>
-  
-  <!-- The Talks Section -->
+
+  <!-- The Teaching Section -->
   <div class="w3-container w3-light-grey w3-padding-32" id="talks">
     <h2>Teaching</h2>
-      <p>
-      <ul>
-<p><li>01/2025 - 05/2025, Graduate Instructor / E&amp;C-ENGR 229 - Introduction to Computer Design Laboratory</li>		  		  
-<p> <li> 01/2025 - 05-2025, Teaching Assistant / E&amp;C-ENGR 330 - Electronic Circuits</li>		  
-<p><li>08/2024 - 12/2024, Graduate Instructor /  E&amp;C-ENGR 227 - Logic Design Laboratory</li>		  
-<p> <li> 08/2024 - 12-2024, Teaching Assistant / E&amp;C-ENGR 334 - Semiconductors and Devices</li>
-<p><li>01/2024 - 05/2024, Graduate Instructor / E&amp;C-ENGR 229 - Introduction to Computer Design Laboratory</li>		  		  
-<p><li>08/2023 - 12/2023, Graduate Instructor /  E&amp;C-ENGR 227 - Logic Design Laboratory</li>		  
-<p><li>01/2023 - 05/2023, Graduate Instructor / E&amp;C-ENGR 229 - Introduction to Computer Design Laboratory</li>
-<p> <li> 08/2022 - 12-2022, Teaching Assistant / E&amp;C-ENGR 5582 - Computer Version</li>
-    <p><li> 01/2022 - 07-2022, Graduate Instructor / E&amp;C-ENGR 216 - Engineering Computation</li>
-    </p>
-<p><li> 08/2021 - 12-2021, Graduate Instructor /  COMP-SCI 291 - Discrete Structures II</li>
-</p>
-<p><li> 01/2020 - 05-2020, Graduate Instructor / COMP-SCI 423 - Client/Server Programming and Applications</li>
-</p>
-<p><li> 08/2018 - 12-2018, Teaching Assistant /  COMP-SCI 5592 - Design and Analysis of Algorithms</li></p>
-<p><li> 08/2018 - 12-2018, Teaching Assistant / COMP-SCI 291 - Discrete Structures II</li></p>
-
-
-
-
-  
+    <ul>
+      <li>01/2025 - 05/2025, Graduate Instructor / E&amp;C-ENGR 229 - Introduction to Computer Design Laboratory</li>
+      <li>01/2025 - 05/2025, Teaching Assistant / E&amp;C-ENGR 330 - Electronic Circuits</li>
+      <li>08/2024 - 12/2024, Graduate Instructor / E&amp;C-ENGR 227 - Logic Design Laboratory</li>
+      <li>08/2024 - 12/2024, Teaching Assistant / E&amp;C-ENGR 334 - Semiconductors and Devices</li>
+      <li>01/2024 - 05/2024, Graduate Instructor / E&amp;C-ENGR 229 - Introduction to Computer Design Laboratory</li>
+      <li>08/2023 - 12/2023, Graduate Instructor / E&amp;C-ENGR 227 - Logic Design Laboratory</li>
+      <li>01/2023 - 05/2023, Graduate Instructor / E&amp;C-ENGR 229 - Introduction to Computer Design Laboratory</li>
+      <li>08/2022 - 12/2022, Teaching Assistant / E&amp;C-ENGR 5582 - Computer Vision</li>
+      <li>01/2022 - 07/2022, Graduate Instructor / E&amp;C-ENGR 216 - Engineering Computation</li>
+      <li>08/2021 - 12/2021, Graduate Instructor / COMP-SCI 291 - Discrete Structures II</li>
+      <li>01/2020 - 05/2020, Graduate Instructor / COMP-SCI 423 - Client/Server Programming and Applications</li>
+      <li>08/2018 - 12/2018, Teaching Assistant / COMP-SCI 5592 - Design and Analysis of Algorithms</li>
+      <li>08/2018 - 12/2018, Teaching Assistant / COMP-SCI 291 - Discrete Structures II</li>
+    </ul>
   </div>
- <!-- The Publications Section -->
-  <div class="w3-container w3-padding-32"" id="publications">
+
+  <!-- The Publications Section -->
+  <div class="w3-container w3-padding-32" id="publications">
     <h2>Research</h2>
-      <p class="w3-left-align" style="line-height:200%">
-      I am passionate about developing efficient and scalable models for <strong>computer vision</strong> applications, with a focus on optimizing performance for real-world deployment. My expertise lies in leveraging deep learning techniques to design end-to-end pipelines that improve accuracy, reduce computational costs, and ensure model efficiency. I am particularly interested in solving challenges related to image processing, feature extraction, and multimodal data integration to create robust solutions for diverse applications. </p>
-    <h4> Conference Papers:</h4>
+    <p class="w3-left-align" style="line-height:200%">
+    My research focuses on <strong>hyperspectral image processing</strong>, <strong>image restoration</strong>, and <strong>vision transformers</strong>. Specifically, I have worked on hyperspectral pansharpening using diffusion priors and spectral transformers, thermal and NIR image super-resolution with flexible attention mechanisms, and image colorization with DCT-based networks. My work leverages <strong>Transformer architectures</strong>, <strong>diffusion models</strong>, and <strong>frequency-domain methods</strong> to improve image quality and computational efficiency in remote sensing and medical imaging applications.
+    </p>
 
+    <h4>Conference Papers:</h4>
     <ol>
-													         <p>
-      <li><strong>Hyperspectral Pansharpening with Transform-based Spectral Diffusion Priors</strong>
-      <br>
-       <strong>Hongcheng Jiang</strong>, ZhiQiang Chen <br>
-      WACV 2025 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/9897373">paper</a> </a></strong>&nbsp; &nbsp;<a style="color: #447ec9">&nbsp;</a><font color="#447ec9">&nbsp;</font>
-</p>
-													   
-													         <p>
-      <li><strong>Flexible Window-based Self-attention Transformer in Thermal Image Super-Resolution</strong>
-      <br>
-      <strong>Hongcheng Jiang</strong>, ZhiQiang Chen <br>
-      <em>CVPR&nbsp;</em> 2024 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/9897373">paper</a> 
+      <p>
+      <li><strong>SMLP-KAN: Spectral MLP-KAN Diffusion Prior for Hyperspectral Image Restoration</strong><br>
+      <strong>Hongcheng Jiang</strong> et al.<br>
+      <em>CVPRW (PBVS)</em> 2026 | <a style="color: #447ec9" href="https://pbvs-workshop.github.io/">paper</a>
       </p>
 
       <p>
-      <li><strong>DCT-Based Residual Network for NIR Image Colorization</strong>
-      <br>
-      <strong>Hongcheng Jiang</strong>, Paras Maharjan, Zhu Li, George York&nbsp <br>
-      <em>IEEE ICIP</em> 2022 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/9897373">paper</a> 
+      <li><strong>THAT: Token-wise High-frequency Augmentation Transformer for Hyperspectral Pansharpening</strong><br>
+      H. Jin*, <strong>Hongcheng Jiang*</strong>, Z. Zhang* et al. <em>(Co-First Author)</em><br>
+      <em>IEEE SMC</em> 2025 | pp. 6627–6634 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/11343459">paper</a>
       </p>
 
       <p>
-      <li><strong>Crucial data selection based on random weight neural network</strong>
-      <br>
-      Jie Ji, <strong>Hongcheng Jiang</strong>, Bin Zhao, Peng Zhai
-      <br>
-      <em>IEEE SMC&nbsp;</em> 2015 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/7379316">paper</a>
+      <li><strong>Hyperspectral Pansharpening with Transformer-based Spectral Diffusion Priors</strong><br>
+      <strong>Hongcheng Jiang</strong>, ZhiQiang Chen<br>
+      <em>WACVW</em> 2025 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/9897373">paper</a>
       </p>
 
+      <p>
+      <li><strong>Flexible Window-based Self-attention Transformer in Thermal Image Super-Resolution</strong><br>
+      <strong>Hongcheng Jiang</strong>, ZhiQiang Chen<br>
+      <em>CVPRW (PBVS)</em> 2024 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/9897373">paper</a>
+      </p>
 
+      <p>
+      <li><strong>DCT-Based Residual Network for NIR Image Colorization</strong><br>
+      <strong>Hongcheng Jiang</strong>, Paras Maharjan, Zhu Li, George York<br>
+      <em>IEEE ICIP</em> 2022 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/9897373">paper</a>
+      </p>
 
-
+      <p>
+      <li><strong>Crucial Data Selection Based on Random Weight Neural Network</strong><br>
+      Jie Ji, <strong>Hongcheng Jiang</strong>, Bin Zhao, Peng Zhai<br>
+      <em>IEEE SMC</em> 2015 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/7379316">paper</a>
+      </p>
     </ol>
 
-    <h4> Journal Papers:</h4>
-
-      <ol>
-																														         <p>
-      <li><strong>Transformer-based Diffusion and Spectral Priors Model For Hyperspectral Pansharpening</strong>
-      <br>
-       <strong>Hongcheng Jiang</strong>, ZhiQiang Chen <br>
-      IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing&nbsp;| under revision.&nbsp; <a style="color: #447ec9" >&nbsp;</a><font color="#447ec9">&nbsp;</font>
-</p>
+    <h4>Journal Papers:</h4>
+    <ol>
       <p>
-      <li><strong>Spatial-Frequency Guided Pixel Transformer for NIR-to-RGB Translation</strong>
-      <br>
-       <strong>Hongcheng Jiang</strong>, ZhiQiang Chen <br>
-      Infrared Physics and Technology&nbsp;|  <a style="color: #447ec9" href="https://link.springer.com/article/10.1007/s13042-020-01087-6">paper</a>
-</p>
-     
-
-      <p>
-      <li><strong>Fully-connected LSTM–CRF on medical concept extraction</strong>
-      <br>
-      Jie Ji, Bairui Chen, <strong>Hongcheng Jiang</strong>
-      <br>
-      <em>IEEE MLC</em> 2020 | <a style="color: #447ec9" href="https://link.springer.com/article/10.1007/s13042-020-01087-6">paper</a> 
+      <li><strong>Transformer-based Diffusion and Spectral Priors Model for Hyperspectral Pansharpening</strong><br>
+      <strong>Hongcheng Jiang</strong>, ZhiQiang Chen<br>
+      <em>IEEE JSTARS</em>, vol. 18, pp. 18962–18977, 2025 | <a style="color: #447ec9" href="#">paper</a>
       </p>
 
-     
+      <p>
+      <li><strong>Spatial-Frequency Guided Pixel Transformer for NIR-to-RGB Translation</strong><br>
+      <strong>Hongcheng Jiang</strong>, ZhiQiang Chen<br>
+      <em>Infrared Physics &amp; Technology</em>, vol. 126, Art. no. 105891, 2025 | <a style="color: #447ec9" href="#">paper</a>
+      </p>
 
-      </ol>
+      <p>
+      <li><strong>Fully-connected LSTM–CRF on Medical Concept Extraction</strong><br>
+      Jie Ji, Bairui Chen, <strong>Hongcheng Jiang</strong><br>
+      <em>International Journal of Machine Learning and Cybernetics</em>, vol. 11, no. 9, pp. 1971–1979, 2020 | <a style="color: #447ec9" href="https://link.springer.com/article/10.1007/s13042-020-01087-6">paper</a>
+      </p>
+    </ol>
+  </div>
 
-    </p>
-</div>
-
-<!-- The Services Section -->
-<div class="w3-container w3-light-grey w3-padding-32" id="service">
+  <!-- The Services Section -->
+  <div class="w3-container w3-light-grey w3-padding-32" id="service">
     <h2>Services</h2>
-  <p><li> Reviewers of&nbsp;<a href="https://2022.ieeeicip.org/">ICIP 2022</a>, <a href="https://2022.ieeeicassp.org/">ICASSP 2022,</a> <a href="https://wacv2025.thecvf.com//">WACV 2025.</p>
+    <ul>
+      <li>Reviewer: <a href="https://2026.ieeeicip.org/">ICIP 2026</a>, <a href="https://wacv2025.thecvf.com/">WACV 2025</a>, <a href="https://2022.ieeeicip.org/">ICIP 2022</a>, <a href="https://2022.ieeeicassp.org/">ICASSP 2022</a></li>
+    </ul>
   </div>
 
-  <!-- The Awards Section -->
+  <!-- The Resume Section -->
   <div class="w3-container w3-padding-32" id="award">
-    <h2>Resume&nbsp;</h2>
-          <p><li> By 05/2025 &nbsp;<a href="https://drive.google.com/file/d/1NexmJ8uMCZx8NMUNMw1_VkfXy88J-vqp/view?usp=sharing/">Resume </a>.</p>
-
-  </div>  
-
-
-<noscript>
-    <div class="statcounter"><a title="Web Analytics Made Easy -
-  StatCounter" href="https://statcounter.com/" target="_blank"><img
-  class="statcounter" src="https://c.statcounter.com/12347113/0/21aca5d1/0/"
-  alt="Web Analytics Made Easy - StatCounter"></a></div>
-</noscript>
-  <!-- End of Statcounter Code -->
-
+    <h2>Resume</h2>
+    <ul>
+      <li>03/2026 &nbsp;<a href="https://drive.google.com/file/d/1PJV_Y137ufWc_Q6xfSRa-krwJiqXb2kU/view?usp=sharing"><strong>Download Resume (1-page, LLM Engineer)</strong></a></li>
+    </ul>
   </div>
 
-  <!-- End page content -->
-</div>
+  </div><!-- End page content -->
 
 <script>
-// Accordion 
-function myAccFunc() {
-  var x = document.getElementById("demoAcc");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else {
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-// Click on the "Jeans" link on page load to open the accordion for demo purposes
-document.getElementById("myBtn").click();
-
-
-// Open and close sidebar
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("myOverlay").style.display = "block";
 }
- 
 function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("myOverlay").style.display = "none";
