@@ -1,231 +1,546 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-
+<html lang="en">
 <head>
-  <title>Hongcheng Jiang's Homepage</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="description" content="Hongcheng Jiang - AI/LLM Engineer specializing in RAG systems, multi-agent pipelines, and clinical AI. PhD ECE UMKC.">
-  <meta name="keywords" content="Hongcheng Jiang, LLM Engineer, RAG, GraphRAG, LangGraph, Clinical AI, UMKC">
-  <meta name="author" content="Hongcheng Jiang" />
-  <link rel="stylesheet" href="w3.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinical AI Research Assistant</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
   <style>
-  .w3-sidebar a {font-family: "Roboto", sans-serif}
-  body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background: #1a1a1a;
+      border-bottom: 1px solid #2a2a2a;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.3px;
+    }
+    .header-subtitle {
+      font-size: 12px;
+      color: #666;
+      margin-top: 2px;
+    }
+    .status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #4caf50;
+      display: inline-block;
+      margin-right: 6px;
+    }
+    .status-text { font-size: 12px; color: #888; }
+
+    /* Layout */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 24px;
+    }
+
+    /* Card */
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 24px;
+    }
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+    }
+
+    /* Chat area */
+    .chat-container { display: flex; flex-direction: column; gap: 24px; }
+
+    .messages {
+      min-height: 400px;
+      max-height: 500px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 4px 0;
+    }
+    .messages::-webkit-scrollbar { width: 4px; }
+    .messages::-webkit-scrollbar-track { background: transparent; }
+    .messages::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+    .message { display: flex; flex-direction: column; gap: 6px; }
+    .message.user { align-items: flex-end; }
+    .message.assistant { align-items: flex-start; }
+
+    .message-bubble {
+      max-width: 80%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .message.user .message-bubble {
+      background: #2a2a2a;
+      color: #e0e0e0;
+      border: 1px solid #333;
+    }
+    .message.assistant .message-bubble {
+      background: #1e1e1e;
+      color: #d0d0d0;
+      border: 1px solid #2a2a2a;
+    }
+
+    .message-meta {
+      font-size: 11px;
+      color: #555;
+      display: flex;
+      gap: 12px;
+    }
+    .badge {
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .badge-blocked { background: #3a1a1a; color: #f44336; border: 1px solid #5a2a2a; }
+    .badge-ok { background: #1a2a1a; color: #4caf50; border: 1px solid #2a4a2a; }
+    .badge-faith { background: #1a1a2a; color: #7986cb; border: 1px solid #2a2a4a; }
+
+    .sources {
+      margin-top: 8px;
+      padding: 10px 12px;
+      background: #151515;
+      border: 1px solid #252525;
+      border-radius: 6px;
+    }
+    .sources-title { font-size: 11px; color: #555; margin-bottom: 6px; }
+    .source-item { font-size: 12px; color: #666; padding: 3px 0; }
+    .source-venue { color: #444; }
+
+    /* Input */
+    .input-area { display: flex; gap: 8px; }
+    .input-field {
+      flex: 1;
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #e0e0e0;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .input-field:focus { border-color: #444; }
+    .input-field::placeholder { color: #444; }
+
+    .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: #e0e0e0;
+      color: #0f0f0f;
+    }
+    .btn-primary:hover { background: #fff; }
+    .btn-primary:disabled { background: #333; color: #666; cursor: not-allowed; }
+    .btn-secondary {
+      background: transparent;
+      color: #666;
+      border: 1px solid #2a2a2a;
+    }
+    .btn-secondary:hover { border-color: #444; color: #888; }
+
+    /* Suggestions */
+    .suggestions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .suggestion {
+      padding: 7px 14px;
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 20px;
+      font-size: 12px;
+      color: #888;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .suggestion:hover { border-color: #444; color: #bbb; background: #1a1a1a; }
+
+    /* Right sidebar */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+    /* Upload */
+    .upload-area {
+      border: 1px dashed #2a2a2a;
+      border-radius: 6px;
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .upload-area:hover { border-color: #444; background: #141414; }
+    .upload-icon { font-size: 28px; margin-bottom: 8px; }
+    .upload-text { font-size: 13px; color: #666; }
+    .upload-hint { font-size: 11px; color: #444; margin-top: 4px; }
+    input[type="file"] { display: none; }
+
+    /* Metrics */
+    .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .metric-item { padding: 12px; background: #141414; border-radius: 6px; border: 1px solid #222; }
+    .metric-value { font-size: 20px; font-weight: 600; color: #e0e0e0; }
+    .metric-label { font-size: 11px; color: #555; margin-top: 2px; }
+
+    /* Papers list */
+    .papers-list { display: flex; flex-direction: column; gap: 8px; }
+    .paper-item {
+      padding: 10px 12px;
+      background: #141414;
+      border: 1px solid #222;
+      border-radius: 6px;
+    }
+    .paper-title { font-size: 12px; color: #c0c0c0; line-height: 1.4; }
+    .paper-venue { font-size: 11px; color: #555; margin-top: 3px; }
+
+    /* Loading spinner */
+    .spinner {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid #333;
+      border-top-color: #888;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Typing indicator */
+    .typing { display: flex; gap: 4px; padding: 12px 16px; }
+    .typing span {
+      width: 6px; height: 6px;
+      background: #444;
+      border-radius: 50%;
+      animation: bounce 1.2s infinite;
+    }
+    .typing span:nth-child(2) { animation-delay: 0.2s; }
+    .typing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce {
+      0%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-6px); }
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      padding: 12px 20px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #e0e0e0;
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+    }
+    .toast.success { border-color: #2a4a2a; color: #4caf50; }
+    .toast.error { border-color: #5a2a2a; color: #f44336; }
+    @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    .empty-state { text-align: center; padding: 60px 20px; color: #444; }
+    .empty-icon { font-size: 40px; margin-bottom: 12px; }
+    .empty-text { font-size: 14px; }
   </style>
-  <link rel="icon" type="image/png" href="images/icons.png">
 </head>
+<body>
+  <div id="root"></div>
 
-<body class="w3-content" style="max-width:1000px">
+  <script type="text/babel">
+    const API_BASE = window.location.origin === 'http://localhost:3000'
+      ? 'http://localhost:8000'
+      : window.location.origin;
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-collapse w3-top w3-right" style="z-index:3;width:150px" id="mySidebar">
-  <div class="w3-container w3-display-container w3-padding-16">
-    <h3><b>&nbsp;</b></h3>
-  </div>
-  <div class="w3-padding-64 w3-text-light-grey w3-large" style="font-weight:bold">
-    <p>
-      <a href="#home" class="w3-bar-item w3-button">Home</a>
-      <a href="#news" class="w3-bar-item w3-button">News</a>
-      <a href="#projects" class="w3-bar-item w3-button">Projects&nbsp;</a>
-      <a href="#talks" class="w3-bar-item w3-button">Teaching</a>
-      <a href="#publications" class="w3-bar-item w3-button">Research</a>
-      <a href="#service" class="w3-bar-item w3-button">Services</a>
-      <a href="#award" class="w3-bar-item w3-button">Resume</a>
-    </p>
-    <p>&nbsp;</p>
-  </div>
-</nav>
+    const SUGGESTIONS = [
+      "What is SMLP-KAN's main contribution?",
+      "Compare PSNR across all papers",
+      "How does uTDSP achieve efficiency?",
+      "What is PTSA in THAT?",
+      "Explain FW-SAT architecture",
+    ];
 
-<!-- Top menu on small screens -->
-<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
-  <div class="w3-bar-item w3-padding-24">Hongcheng</div>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" style="font-stretch: extra-expanded;" onclick="w3_open()"><b>≡</b></a>
-</header>
+    function App() {
+      const [messages, setMessages] = React.useState([]);
+      const [input, setInput] = React.useState('');
+      const [loading, setLoading] = React.useState(false);
+      const [metrics, setMetrics] = React.useState(null);
+      const [papers, setPapers] = React.useState([]);
+      const [toast, setToast] = React.useState(null);
+      const [uploading, setUploading] = React.useState(false);
+      const messagesEndRef = React.useRef(null);
+      const fileInputRef = React.useRef(null);
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+      React.useEffect(() => {
+        fetchMetrics();
+        fetchPapers();
+      }, []);
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:150px">
+      React.useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }, [messages]);
 
-  <!-- Push down content on small screens -->
-  <div class="w3-hide-large" style="margin-top:83px"></div>
+      const showToast = (msg, type = 'success') => {
+        setToast({ msg, type });
+        setTimeout(() => setToast(null), 3000);
+      };
 
-  <!-- The Home Section -->
-  <div class="w3-container w3-center w3-padding-32" id="home">
-    <img style="width: 80%;max-width: 320px" alt="profile photo" src="images/me.jpg">
-    <h1>Hongcheng Jiang</h1>
+      const fetchMetrics = async () => {
+        try {
+          const r = await fetch(`${API_BASE}/metrics`);
+          const d = await r.json();
+          setMetrics(d);
+        } catch {}
+      };
 
-    <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
-    I am an <strong>AI/LLM Engineer</strong> specializing in <strong>RAG systems</strong>, <strong>multi-agent pipelines</strong>, and <strong>clinical AI</strong>, with proven production impact: <strong>RAGAS 0.98 accuracy</strong> and <strong>P95 latency &lt;2.6s</strong>. I hold a <strong>Ph.D. in Electrical and Computer Engineering</strong> from the <a href="https://www.umkc.edu/"><strong>University of Missouri-Kansas City (UMKC)</strong></a> (GPA: 4.0), under the mentorship of Prof. <a href="https://sse.umkc.edu/profiles/zhiqiang-chen.html"><strong>ZhiQiang Chen</strong></a>.
-    </p>
+      const fetchPapers = async () => {
+        try {
+          const r = await fetch(`${API_BASE}/papers`);
+          const d = await r.json();
+          setPapers(d.papers || []);
+        } catch {}
+      };
 
-    <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
-    Currently, I work as a <strong>Machine Learning Engineer</strong> at <strong><a href="https://www.nexttiertech.com/">NextTier</a></strong>, where I design and deploy production LLM systems for clinical AI, including <strong>RAG pipelines</strong> (RAGAS Answer Relevancy 0.98, P95 latency &lt;2.6s), <strong>LangGraph multi-agent orchestration</strong>, <strong>QLoRA fine-tuning</strong>, and <strong>LLM safety layers</strong>. I deploy services on <strong>AWS EC2</strong> with live public APIs, <strong>supporting clinical decision-making and multi-document reasoning.</strong>
-    </p>
+      const handleSubmit = async (q = null) => {
+        const question = q || input.trim();
+        if (!question || loading) return;
+        setInput('');
+        setLoading(true);
 
-    <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
-    I have published <strong>9 papers</strong> at top venues including <strong>CVPRW</strong>, <strong>WACVW</strong>, <strong>IEEE JSTARS</strong>, <strong>IEEE SMC</strong>, and <strong>Infrared Physics &amp; Technology</strong>, with research spanning computer vision, image restoration, and multimodal AI.
-    </p>
+        setMessages(prev => [...prev, { role: 'user', content: question }]);
 
-    <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
-    <strong>Live Demos (Production Systems):</strong><br>
-    &nbsp;&nbsp;&#8250; <a href="http://3.151.59.179:8000/"><strong>Clinical AI Research Assistant</strong></a> — multi-agent GraphRAG system (try PDF upload)<br>
-    &nbsp;&nbsp;&#8250; <a href="http://3.151.59.179:8001/"><strong>Medical VLM Report Assistant</strong></a> — CT report generation (real-time inference)
-    </p>
+        try {
+          const r = await fetch(`${API_BASE}/query`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question })
+          });
+          const d = await r.json();
+          setMessages(prev => [...prev, {
+            role: 'assistant',
+            content: d.answer,
+            sources: d.sources || [],
+            latency_ms: d.latency_ms,
+            faithfulness: d.faithfulness,
+            blocked: d.blocked,
+            block_reason: d.block_reason
+          }]);
+          fetchMetrics();
+        } catch (e) {
+          setMessages(prev => [...prev, {
+            role: 'assistant',
+            content: 'Connection error. Make sure the API is running on port 8000.',
+            sources: [], blocked: false
+          }]);
+        }
+        setLoading(false);
+      };
 
-    <p class="w3-center">
-      <a href="/cdn-cgi/l/email-protection#274f4d56131367524a4c4409424352">Email</a> &nbsp/&nbsp
-      <a href="https://scholar.google.com/citations?hl=en&user=NPk5cT0AAAAJ">Google Scholar</a> &nbsp/&nbsp
-      <a href="https://www.linkedin.com/in/hongcheng-jiang-a31860181/">LinkedIn</a> &nbsp/&nbsp
-      <a href="https://github.com/jianghongcheng">GitHub</a>
-    </p>
-  </div>
+      const handleUpload = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        setUploading(true);
+        const formData = new FormData();
+        formData.append('file', file);
+        try {
+          const r = await fetch(`${API_BASE}/upload`, { method: 'POST', body: formData });
+          const d = await r.json();
+          showToast(`✓ ${d.message}`, 'success');
+          fetchPapers();
+          fetchMetrics();
+        } catch (e) {
+          showToast('Upload failed', 'error');
+        }
+        setUploading(false);
+        e.target.value = '';
+      };
 
-  <!-- The News Section -->
-  <div class="w3-container w3-light-grey w3-padding-32" id="news">
-    <h2>News</h2>
-    <ul>
-      <li>04/2026, 1 paper has been accepted by <strong><a href="https://pbvs-workshop.github.io/">CVPRW (PBVS) 2026</a></strong>.</li>
-      <li>03/2026, Deployed two production AI systems on AWS EC2: <a href="http://3.151.59.179:8000/">Clinical AI Research Assistant</a> and <a href="http://3.151.59.179:8001/">Medical VLM Report Assistant</a>.</li>
-      <li>10/2025, 1 paper has been accepted by <strong><a href="https://www.ieeesmc2025.org/">IEEE SMC 2025</a></strong>.</li>
-      <li>05/2025, I have graduated with a <strong>Ph.D. in Electrical and Computer Engineering.</strong></li>
-      <li>05/2025, 1 paper has been accepted by <strong><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=4609443">IEEE JSTARS</a></strong>.</li>
-      <li>04/2025, 1 paper has been accepted by <strong><a href="https://www.sciencedirect.com/journal/infrared-physics-and-technology">Infrared Physics and Technology</a></strong>.</li>
-      <li>01/2025, 1 paper has been accepted by <a href="https://wacv2025.thecvf.com/"><strong>WACVW 2025</strong></a>.</li>
-      <li>04/2024, 1 paper has been accepted by <strong><a href="https://pbvs-workshop.github.io/history/2024/index.html">CVPRW (PBVS) 2024</a></strong>.</li>
-      <li>08/2022, 1 paper has been accepted by <a href="https://2022.ieeeicip.org/"><strong>ICIP 2022</strong></a>.</li>
-      <li>09/2020, 1 paper has been accepted by <strong><a href="https://link.springer.com/journal/13042">International Journal of Machine Learning and Cybernetics</a></strong>.</li>
-    </ul>
-  </div>
+      return (
+        <div>
+          {/* Header */}
+          <div className="header">
+            <div>
+              <div className="header-title">Clinical AI Research Assistant</div>
+              <div className="header-subtitle">RAG · Multi-Agent · Guardrails · Monitoring</div>
+            </div>
+            <div className="status-text">
+              <span className="status-dot"></span>
+              {metrics ? `${metrics.papers_indexed || papers.length} papers indexed` : 'Connecting...'}
+            </div>
+          </div>
 
-  <!-- The Projects Section -->
-  <div class="w3-container w3-padding-32" id="projects">
-    <h2>Recent Projects</h2>
-    <p class="w3-justify">My recent work focuses on <strong>production-grade LLM systems</strong> for clinical AI, covering <strong>retrieval, reasoning, and deployment</strong>. Key projects:<br><br>
+          <div className="container">
+            {/* Main chat */}
+            <div className="chat-container">
+              <div className="card">
+                <div className="card-title">Research Query</div>
 
-    <strong><a href="http://3.151.59.179:8000/">Clinical AI Research Assistant</a></strong> (<a href="https://github.com/jianghongcheng/clinical-ai-assistant">GitHub</a>): GraphRAG + LangGraph multi-agent pipeline for radiology papers; RAGAS Answer Relevancy 0.98 / Context Recall 1.00; deployed on AWS EC2 with React frontend, Guardrails, and LLM monitoring.<br><br>
+                {/* Suggestions */}
+                <div className="suggestions" style={{marginBottom: 20}}>
+                  {SUGGESTIONS.map((s, i) => (
+                    <div key={i} className="suggestion" onClick={() => handleSubmit(s)}>{s}</div>
+                  ))}
+                </div>
 
-    <strong><a href="http://3.151.59.179:8001/">Medical VLM Report Assistant</a></strong> (<a href="https://github.com/jianghongcheng/medical-vlm-assistant">GitHub</a>): CT report generation pipeline using Stanford Merlin (Nature 2026, 3D CT VLM) + RAG + GPT-4o; ICD-10 coding and risk stratification; deployed on AWS EC2 with Docker and nginx.
-    </p>
+                {/* Messages */}
+                <div className="messages">
+                  {messages.length === 0 && (
+                    <div className="empty-state">
+                      <div className="empty-icon">🔬</div>
+                      <div className="empty-text">Ask about indexed research papers<br/>or upload a PDF to analyze</div>
+                    </div>
+                  )}
+                  {messages.map((m, i) => (
+                    <div key={i} className={`message ${m.role}`}>
+                      <div className="message-bubble">{m.content}</div>
+                      {m.role === 'assistant' && (
+                        <div className="message-meta">
+                          {m.blocked
+                            ? <span className="badge badge-blocked">⛔ {m.block_reason}</span>
+                            : <span className="badge badge-ok">✓ Passed guardrails</span>
+                          }
+                          {m.latency_ms && <span>{Math.round(m.latency_ms)}ms</span>}
+                          {m.faithfulness > 0 && (
+                            <span className="badge badge-faith">
+                              faithfulness {(m.faithfulness * 100).toFixed(0)}%
+                            </span>
+                          )}
+                        </div>
+                      )}
+                      {m.sources && m.sources.length > 0 && (
+                        <div className="sources">
+                          <div className="sources-title">Sources</div>
+                          {m.sources.map((s, j) => (
+                            <div key={j} className="source-item">
+                              {s.title?.substring(0, 60)}... <span className="source-venue">— {s.venue}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                  {loading && (
+                    <div className="message assistant">
+                      <div className="message-bubble">
+                        <div className="typing">
+                          <span></span><span></span><span></span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  <div ref={messagesEndRef} />
+                </div>
 
-    <p class="w3-justify">
-    <strong>Technical Skills:</strong> RAG, GraphRAG, LangGraph, Multi-Agent Systems, QLoRA Fine-tuning, RAGAS, Guardrails, FastAPI, Qdrant, PyTorch, LangChain, HuggingFace, AWS EC2, Docker, nginx, Presidio
-    </p>
-  </div>
+                {/* Input */}
+                <div className="input-area" style={{marginTop: 16}}>
+                  <input
+                    className="input-field"
+                    value={input}
+                    onChange={e => setInput(e.target.value)}
+                    onKeyDown={e => e.key === 'Enter' && handleSubmit()}
+                    placeholder="Ask about SMLP-KAN, uTDSP, THAT, SF-GPT, FW-SAT..."
+                    disabled={loading}
+                  />
+                  <button className="btn btn-primary" onClick={() => handleSubmit()} disabled={loading || !input.trim()}>
+                    {loading ? <><span className="spinner"></span>Thinking</> : 'Send'}
+                  </button>
+                  {messages.length > 0 && (
+                    <button className="btn btn-secondary" onClick={() => setMessages([])}>Clear</button>
+                  )}
+                </div>
+              </div>
+            </div>
 
-  <!-- The Teaching Section -->
-  <div class="w3-container w3-light-grey w3-padding-32" id="talks">
-    <h2>Teaching</h2>
-    <ul>
-      <li>01/2025 - 05/2025, Graduate Instructor / E&amp;C-ENGR 229 - Introduction to Computer Design Laboratory</li>
-      <li>01/2025 - 05/2025, Teaching Assistant / E&amp;C-ENGR 330 - Electronic Circuits</li>
-      <li>08/2024 - 12/2024, Graduate Instructor / E&amp;C-ENGR 227 - Logic Design Laboratory</li>
-      <li>08/2024 - 12/2024, Teaching Assistant / E&amp;C-ENGR 334 - Semiconductors and Devices</li>
-      <li>01/2024 - 05/2024, Graduate Instructor / E&amp;C-ENGR 229 - Introduction to Computer Design Laboratory</li>
-      <li>08/2023 - 12/2023, Graduate Instructor / E&amp;C-ENGR 227 - Logic Design Laboratory</li>
-      <li>01/2023 - 05/2023, Graduate Instructor / E&amp;C-ENGR 229 - Introduction to Computer Design Laboratory</li>
-      <li>08/2022 - 12/2022, Teaching Assistant / E&amp;C-ENGR 5582 - Computer Vision</li>
-      <li>01/2022 - 07/2022, Graduate Instructor / E&amp;C-ENGR 216 - Engineering Computation</li>
-      <li>08/2021 - 12/2021, Graduate Instructor / COMP-SCI 291 - Discrete Structures II</li>
-      <li>01/2020 - 05/2020, Graduate Instructor / COMP-SCI 423 - Client/Server Programming and Applications</li>
-      <li>08/2018 - 12/2018, Teaching Assistant / COMP-SCI 5592 - Design and Analysis of Algorithms</li>
-      <li>08/2018 - 12/2018, Teaching Assistant / COMP-SCI 291 - Discrete Structures II</li>
-    </ul>
-  </div>
+            {/* Sidebar */}
+            <div className="sidebar">
+              {/* Upload */}
+              <div className="card">
+                <div className="card-title">Upload PDF</div>
+                <input ref={fileInputRef} type="file" accept=".pdf" onChange={handleUpload} />
+                <div className="upload-area" onClick={() => fileInputRef.current.click()}>
+                  <div className="upload-icon">{uploading ? '⏳' : '📄'}</div>
+                  <div className="upload-text">{uploading ? 'Processing...' : 'Click to upload'}</div>
+                  <div className="upload-hint">PDF files only • Max 10MB</div>
+                </div>
+              </div>
 
-  <!-- The Publications Section -->
-  <div class="w3-container w3-padding-32" id="publications">
-    <h2>Research</h2>
-    <p class="w3-left-align" style="line-height:200%">
-    My research focuses on <strong>hyperspectral image processing</strong>, <strong>image restoration</strong>, and <strong>vision transformers</strong>. Specifically, I have worked on hyperspectral pansharpening using diffusion priors and spectral transformers, thermal and NIR image super-resolution with flexible attention mechanisms, and image colorization with DCT-based networks. My work leverages <strong>Transformer architectures</strong>, <strong>diffusion models</strong>, and <strong>frequency-domain methods</strong> to improve image quality and computational efficiency in remote sensing and medical imaging applications.
-    </p>
+              {/* Metrics */}
+              <div className="card">
+                <div className="card-title">Live Metrics</div>
+                <div className="metrics-grid">
+                  <div className="metric-item">
+                    <div className="metric-value">{metrics?.total_queries ?? '—'}</div>
+                    <div className="metric-label">Queries</div>
+                  </div>
+                  <div className="metric-item">
+                    <div className="metric-value">{metrics?.avg_latency_ms ? `${Math.round(metrics.avg_latency_ms)}ms` : '—'}</div>
+                    <div className="metric-label">Avg Latency</div>
+                  </div>
+                  <div className="metric-item">
+                    <div className="metric-value">{metrics?.avg_faithfulness ? (metrics.avg_faithfulness * 100).toFixed(0) + '%' : '—'}</div>
+                    <div className="metric-label">Faithfulness</div>
+                  </div>
+                  <div className="metric-item">
+                    <div className="metric-value">{metrics?.blocked_count ?? '—'}</div>
+                    <div className="metric-label">Blocked</div>
+                  </div>
+                </div>
+                <button className="btn btn-secondary" style={{width:'100%', marginTop:12, fontSize:12}} onClick={fetchMetrics}>
+                  Refresh
+                </button>
+              </div>
 
-    <h4>Conference Papers:</h4>
-    <ol>
-      <p>
-      <li><strong>SMLP-KAN: Spectral MLP-KAN Diffusion Prior for Hyperspectral Image Restoration</strong><br>
-      <strong>Hongcheng Jiang</strong> et al.<br>
-      <em>CVPRW (PBVS)</em> 2026 | <a style="color: #447ec9" href="https://pbvs-workshop.github.io/">paper</a>
-      </p>
+              {/* Papers */}
+              <div className="card">
+                <div className="card-title">Indexed Papers ({papers.length})</div>
+                <div className="papers-list">
+                  {papers.map((p, i) => (
+                    <div key={i} className="paper-item">
+                      <div className="paper-title">{p.title?.substring(0, 70)}...</div>
+                      <div className="paper-venue">{p.venue}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <p>
-      <li><strong>THAT: Token-wise High-frequency Augmentation Transformer for Hyperspectral Pansharpening</strong><br>
-      H. Jin*, <strong>Hongcheng Jiang*</strong>, Z. Zhang* et al. <em>(Co-First Author)</em><br>
-      <em>IEEE SMC</em> 2025 | pp. 6627–6634 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/11343459">paper</a>
-      </p>
+          {toast && <div className={`toast ${toast.type}`}>{toast.msg}</div>}
+        </div>
+      );
+    }
 
-      <p>
-      <li><strong>Hyperspectral Pansharpening with Transformer-based Spectral Diffusion Priors</strong><br>
-      <strong>Hongcheng Jiang</strong>, ZhiQiang Chen<br>
-      <em>WACVW</em> 2025 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/9897373">paper</a>
-      </p>
-
-      <p>
-      <li><strong>Flexible Window-based Self-attention Transformer in Thermal Image Super-Resolution</strong><br>
-      <strong>Hongcheng Jiang</strong>, ZhiQiang Chen<br>
-      <em>CVPRW (PBVS)</em> 2024 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/9897373">paper</a>
-      </p>
-
-      <p>
-      <li><strong>DCT-Based Residual Network for NIR Image Colorization</strong><br>
-      <strong>Hongcheng Jiang</strong>, Paras Maharjan, Zhu Li, George York<br>
-      <em>IEEE ICIP</em> 2022 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/9897373">paper</a>
-      </p>
-
-      <p>
-      <li><strong>Crucial Data Selection Based on Random Weight Neural Network</strong><br>
-      Jie Ji, <strong>Hongcheng Jiang</strong>, Bin Zhao, Peng Zhai<br>
-      <em>IEEE SMC</em> 2015 | <a style="color: #447ec9" href="https://ieeexplore.ieee.org/abstract/document/7379316">paper</a>
-      </p>
-    </ol>
-
-    <h4>Journal Papers:</h4>
-    <ol>
-      <p>
-      <li><strong>Transformer-based Diffusion and Spectral Priors Model for Hyperspectral Pansharpening</strong><br>
-      <strong>Hongcheng Jiang</strong>, ZhiQiang Chen<br>
-      <em>IEEE JSTARS</em>, vol. 18, pp. 18962–18977, 2025 | <a style="color: #447ec9" href="#">paper</a>
-      </p>
-
-      <p>
-      <li><strong>Spatial-Frequency Guided Pixel Transformer for NIR-to-RGB Translation</strong><br>
-      <strong>Hongcheng Jiang</strong>, ZhiQiang Chen<br>
-      <em>Infrared Physics &amp; Technology</em>, vol. 126, Art. no. 105891, 2025 | <a style="color: #447ec9" href="#">paper</a>
-      </p>
-
-      <p>
-      <li><strong>Fully-connected LSTM–CRF on Medical Concept Extraction</strong><br>
-      Jie Ji, Bairui Chen, <strong>Hongcheng Jiang</strong><br>
-      <em>International Journal of Machine Learning and Cybernetics</em>, vol. 11, no. 9, pp. 1971–1979, 2020 | <a style="color: #447ec9" href="https://link.springer.com/article/10.1007/s13042-020-01087-6">paper</a>
-      </p>
-    </ol>
-  </div>
-
-  <!-- The Services Section -->
-  <div class="w3-container w3-light-grey w3-padding-32" id="service">
-    <h2>Services</h2>
-    <ul>
-      <li>Reviewer: <a href="https://2026.ieeeicip.org/">ICIP 2026</a>, <a href="https://wacv2025.thecvf.com/">WACV 2025</a>, <a href="https://2022.ieeeicip.org/">ICIP 2022</a>, <a href="https://2022.ieeeicassp.org/">ICASSP 2022</a></li>
-    </ul>
-  </div>
-
-  <!-- The Resume Section -->
-  <div class="w3-container w3-padding-32" id="award">
-    <h2>Resume</h2>
-    <ul>
-      <li>03/2026 &nbsp;<a href="https://drive.google.com/file/d/1PJV_Y137ufWc_Q6xfSRa-krwJiqXb2kU/view?usp=sharing"><strong>Download Resume (1-page, LLM Engineer)</strong></a></li>
-    </ul>
-  </div>
-
-  </div><!-- End page content -->
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
-function w3_close() {
-  document
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
