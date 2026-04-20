@@ -106,13 +106,14 @@
     <h2>Recent Projects</h2>
     <p class="w3-justify">My recent work focuses on <strong>production-grade LLM systems</strong> for clinical AI, covering <strong>retrieval, reasoning, and deployment</strong>. Key projects:<br><br>
 
-    <strong><a href="http://3.151.59.179:8000/">Clinical AI Research Assistant</a></strong> (<a href="https://github.com/jianghongcheng/clinical-ai-assistant">GitHub</a>): GraphRAG + LangGraph multi-agent pipeline for radiology papers; RAGAS Answer Relevancy 0.98 / Context Recall 1.00; deployed on AWS EC2 with React frontend, Guardrails, and LLM monitoring.<br><br>
+    <strong><a href="http://3.151.59.179:8000/">Clinical AI Research Assistant</a></strong> (<a href="https://github.com/jianghongcheng/clinical-ai-assistant">GitHub</a>): GraphRAG + LangGraph multi-agent pipeline for radiology papers; RAGAS Answer Relevancy 0.98 / Context Recall 1.00; deployed on AWS EC2 with React frontend, Guardrails, and LLM monitoring.
+<br><br>
 
-    <strong><a href="http://3.151.59.179:8001/">Medical VLM Report Assistant</a></strong> (<a href="https://github.com/jianghongcheng/medical-vlm-assistant">GitHub</a>): CT report generation pipeline using Stanford Merlin (Nature 2026, 3D CT VLM) + RAG + GPT-4o; ICD-10 coding and risk stratification; deployed on AWS EC2 with Docker and nginx.
+    <strong><a href="http://3.151.59.179:8001/">Medical VLM Report Assistant</a></strong> (<a href="https://github.com/jianghongcheng/medical-vlm-assistant">GitHub</a>): 4-stage CT report generation pipeline on Med3DVLM (IEEE JBHI 2025) — structured VQA perception → image RAG (DCFormer-SigLIP + Qdrant, Recall@1=61%) → local Qwen2.5-7B generation (METEOR=36.4%) → safety layer (always DRAFT); 3s/report on RTX 3090, $0/query; architecture demo deployed on AWS EC2.
     </p>
 
     <p class="w3-justify">
-    <strong>Technical Skills:</strong> RAG, GraphRAG, LangGraph, Multi-Agent Systems, QLoRA Fine-tuning, RAGAS, Guardrails, FastAPI, Qdrant, PyTorch, LangChain, HuggingFace, AWS EC2, Docker, nginx, Presidio
+    <strong>Technical Skills:</strong> RAG, GraphRAG, LangGraph, Multi-Agent Systems, QLoRA Fine-tuning, RAGAS, Guardrails, FastAPI, Qdrant, PyTorch, LangChain, HuggingFace, AWS EC2, Docker, nginx, Presidio, Med3DVLM, DCFormer, SigLIP
     </p>
   </div>
 
