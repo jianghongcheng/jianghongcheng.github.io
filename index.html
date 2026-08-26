@@ -17,6 +17,38 @@
   <style>
   .w3-sidebar a {font-family: "Roboto", sans-serif}
   body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+  .site-section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    border-top: 1px solid #e6e6e6;
+  }
+  .site-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .site-section h4 {
+    margin-top: 28px;
+    margin-bottom: 14px;
+  }
+  .site-section > :last-child {
+    margin-bottom: 0;
+  }
+  .site-section ol,
+  .site-section ul {
+    margin-top: 0;
+  }
+  .site-section li {
+    margin-bottom: 14px;
+  }
+  .site-section li:last-child {
+    margin-bottom: 0;
+  }
+  @media (max-width: 600px) {
+    .site-section {
+      padding-top: 30px !important;
+      padding-bottom: 30px !important;
+    }
+  }
   </style>
   <link rel="icon" type="image/png" href="images/icons.png">
 </head>
@@ -75,7 +107,7 @@
     </p>
 
     <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
-    I have published <strong>9 papers</strong>, including first-author work at IEEE ICIP, IEEE JSTARS, IEEE/CVF CVPR and WACV workshops, and <em>Infrared Physics &amp; Technology</em>, spanning computer vision, image restoration, and multimodal AI.
+    I have published <strong>9 papers</strong>, including first-author work at IEEE ICIP, IEEE JSTARS, IEEE/CVF CVPR and WACV workshops, and <em>Infrared Physics &amp; Technology</em>, spanning computer vision, image restoration, clinical NLP, and multimodal AI.
     </p>
 
     <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
@@ -92,7 +124,7 @@
   </div>
 
   <!-- The News Section -->
-  <div class="w3-container w3-light-grey w3-padding-32" id="news">
+  <div class="w3-container w3-light-grey site-section" id="news">
     <h2>News</h2>
     <ul>
       <li>06/2026, Started as Research Associate (Postdoctoral Researcher) at UMKC.</li>
@@ -109,7 +141,7 @@
   </div>
 
   <!-- The Projects Section -->
-  <div class="w3-container w3-padding-32" id="projects">
+  <div class="w3-container site-section" id="projects">
     <h2>Selected Project</h2>
     <p class="w3-justify">
     <strong><a href="https://github.com/jianghongcheng/radmeasure-agent">RadMeasure</a></strong> — a bounded agent runtime for radiographic measurement and SQL repair. LLM proposes, policy authorizes, deterministic tools execute, verifier decides. On a frozen 36-case adversarial suite, policy gating raised task success from 19/36 to 30/36 and blocked all six unsafe actions; a deterministic rule planner also beat the LLM on a 24-case safety suite — a negative result, and the reason the LLM sits behind deterministic authorization. FastAPI/MCP, async workers, PostgreSQL/MinIO, CI, trace replay.
@@ -125,7 +157,7 @@
   </div>
 
   <!-- The Publications Section -->
-  <div class="w3-container w3-padding-32" id="research">
+  <div class="w3-container site-section" id="research">
     <h2>Research</h2>
     <p class="w3-left-align" style="line-height:200%">
     My current research is on <strong>software-engineering agents</strong> and <strong>geometry-conditioned radiographic measurement</strong>. Earlier work focuses on <strong>hyperspectral image processing</strong>, <strong>image restoration</strong>, and <strong>vision transformers</strong>. Specifically, I have worked on hyperspectral pansharpening using diffusion priors and spectral transformers, thermal and NIR image super-resolution with flexible attention mechanisms, and image colorization with DCT-based networks. My work leverages <strong>Transformer architectures</strong>, <strong>diffusion models</strong>, and <strong>frequency-domain methods</strong> to improve image quality and computational efficiency in remote sensing and medical imaging applications.
@@ -179,7 +211,7 @@
   </div>
 
   <!-- The Services Section -->
-  <div class="w3-container w3-light-grey w3-padding-32" id="service">
+  <div class="w3-container site-section" id="service">
     <h2>Services</h2>
     <ul>
       <li>Reviewer: <a href="https://2026.ieeeicip.org/">ICIP 2026</a>, <a href="https://wacv2025.thecvf.com/">WACV 2025</a>, <a href="https://2022.ieeeicip.org/">ICIP 2022</a>, <a href="https://2022.ieeeicassp.org/">ICASSP 2022</a></li>
@@ -187,13 +219,13 @@
   </div>
 
   <!-- The Teaching Section -->
-  <div class="w3-container w3-padding-32" id="teaching">
+  <div class="w3-container site-section" id="teaching">
     <h2>Teaching</h2>
     <p>Graduate Instructor / Teaching Assistant, 13 semesters across Computer Science and Electrical &amp; Computer Engineering at UMKC (2018–2025). Courses included Computer Vision, Algorithms, Discrete Structures, Electronic Circuits, and Computer Design Laboratory.</p>
   </div>
 
   <!-- The Resume Section -->
-  <div class="w3-container w3-padding-32" id="award">
+  <div class="w3-container site-section" id="award">
     <h2>Resume</h2>
     <ul>
       <li>08/2026 &nbsp;<a href="https://drive.google.com/file/d/1VDmkdHX1rV2kCaCaE1n41dZqpXqUruxt/view?usp=sharing"><strong>Download Resume (PDF, updated August 2026)</strong></a></li>
