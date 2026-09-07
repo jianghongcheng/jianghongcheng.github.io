@@ -64,7 +64,7 @@
     <p>
       <a href="#home" class="w3-bar-item w3-button">Home</a>
       <a href="#news" class="w3-bar-item w3-button">News</a>
-      <a href="#projects" class="w3-bar-item w3-button">Selected Project</a>
+      <a href="#projects" class="w3-bar-item w3-button">Selected Projects</a>
       <a href="#research" class="w3-bar-item w3-button">Research</a>
       <a href="#service" class="w3-bar-item w3-button">Services</a>
       <a href="#teaching" class="w3-bar-item w3-button">Teaching</a>
@@ -103,7 +103,7 @@
     </p>
 
     <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
-    I am currently a <strong>Research Associate (Postdoctoral Researcher)</strong> at UMKC, working on software-engineering agents and geometry-conditioned radiographic measurement. Previously I was the sole ML engineer at <a href="https://www.nexttiertech.com/"><strong>NextTier</strong></a>, where I built and later open-sourced a bounded agent runtime for radiographic measurement and SQL repair.
+    I am currently a <strong>Research Associate (Postdoctoral Researcher)</strong> at UMKC, working on software-engineering agents and geometry-conditioned radiographic measurement. Previously I was the sole ML engineer at <a href="https://www.nexttiertech.com/"><strong>NextTier</strong></a>, where I built and later open-sourced agent tooling. The public projects now have separate scopes: RadMeasure for medical imaging measurement, and ContractSQL for read-only SQL analysis.
     </p>
 
     <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
@@ -112,7 +112,8 @@
 
     <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
     <strong>Selected work</strong><br>
-    &nbsp;&nbsp;&#8250; <a href="https://github.com/jianghongcheng/radmeasure-agent"><strong>RadMeasure</strong></a> — open-source bounded agent runtime for radiographic measurement and SQL repair. LLM proposes, policy authorizes, deterministic tools execute, verifier decides. Without retuning, a separately frozen 108-case confirmatory suite across six unseen schemas improved from 73/108 to 98/108, blocked 25/25 unsafe proposals, and rejected all six incorrect outputs. Research prototype only—not a medical device.
+    &nbsp;&nbsp;&#8250; <a href="https://github.com/jianghongcheng/contractsql"><strong>ContractSQL</strong></a> — a SQL Data Agent for registered SQLite sources, with bounded read-only execution, repair, and reviewable results.<br>
+    &nbsp;&nbsp;&#8250; <a href="https://github.com/jianghongcheng/radmeasure-agent"><strong>RadMeasure</strong></a> — a medical imaging measurement agent for HVA and IMA, with geometric checks, execution records, and human review. Research prototype—not for patient care.
     </p>
 
     <p class="w3-center">
@@ -127,6 +128,7 @@
   <div class="w3-container w3-light-grey site-section" id="news">
     <h2>News</h2>
     <ul>
+      <li>09/2026, Published separate project scopes for <a href="https://github.com/jianghongcheng/contractsql">ContractSQL</a> (SQL analysis) and <a href="https://github.com/jianghongcheng/radmeasure-agent">RadMeasure</a> (medical imaging measurement).</li>
       <li>06/2026, Started as Research Associate (Postdoctoral Researcher) at UMKC.</li>
       <li>04/2026, 1 paper has been accepted by <strong><a href="https://pbvs-workshop.github.io/">CVPRW (PBVS) 2026</a></strong>.</li>
       <li>10/2025, 1 paper has been accepted by <strong><a href="https://www.ieeesmc2025.org/">IEEE SMC 2025</a></strong>.</li>
@@ -142,9 +144,17 @@
 
   <!-- The Projects Section -->
   <div class="w3-container site-section" id="projects">
-    <h2>Selected Project</h2>
+    <h2>Selected Projects</h2>
     <p class="w3-justify">
-    <strong><a href="https://github.com/jianghongcheng/radmeasure-agent">RadMeasure</a></strong> — a bounded agent runtime for radiographic measurement and SQL repair. Without retuning, a separately frozen 108-case confirmatory suite across six unseen schemas and 18 unseen failure families improved from 73/108 to 98/108, blocked 25/25 unsafe proposals, and rejected all six incorrect outputs; the paired cluster-bootstrap 95% confidence interval was +7.4 to +40.7 points. Harbor reproduced 98/108 in network-isolated agent/verifier containers with hidden fixtures. FastAPI/MCP, PostgreSQL/MinIO, CI, and trace replay.
+    <strong><a href="https://github.com/jianghongcheng/contractsql">ContractSQL — SQL Data Agent</a></strong><br>
+    Natural-language analysis on registered SQLite sources, with read-only execution limits, bounded repair, asynchronous jobs, execution evidence, and human review. Supports totals, lists, and grouped results through configured tasks. This is a local portfolio project, not a claim of customer adoption or general SQL correctness.
+    </p>
+    <p><a href="https://github.com/jianghongcheng/contractsql/blob/main/docs/PUBLIC_RELEASE_VALIDATION.md">Release validation</a>: 237 local tests passed in a clean public-file checkout. These are software checks, not 237 independent model-evaluation questions.</p>
+    <p class="w3-justify">
+    <strong><a href="https://github.com/jianghongcheng/radmeasure-agent">RadMeasure — Medical Imaging Measurement Agent</a></strong><br>
+    Registered HVA and IMA protocols, deterministic geometry checks, bounded repair, typed measurement contracts, and auditable review and replay. Synthetic demonstrations, saved-artifact replay, and live inference are distinct modes; live inference requires separately configured models.
+    </p>
+    <p><a href="https://github.com/jianghongcheng/radmeasure-agent/blob/main/docs/MEDICAL_RELEASE_VALIDATION.md">Release validation</a>: 97 local tests passed; 2 tests requiring excluded evaluation artifacts were skipped. No fresh clinical accuracy claim.
     </p>
 
     <p class="w3-justify">
@@ -234,10 +244,15 @@
 
   </div><!-- End page content -->
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("myOverlay").style.display = "block";
 }
 function w3_close() {
-  document
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+</body>
+</html>
