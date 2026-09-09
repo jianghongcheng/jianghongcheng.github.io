@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-  <title>Hongcheng Jiang | Applied AI Engineer — Agent Systems</title>
+  <title>Hongcheng Jiang | Applied AI Engineer — LLM Agents &amp; Evaluation</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="description" content="Hongcheng Jiang - Applied AI and Machine Learning Engineer working on reliable LLM agent systems and multimodal ML for clinical and scientific imaging.">
+  <meta name="description" content="Hongcheng Jiang - Applied AI Engineer building and evaluating LangGraph agents, hybrid RAG, and verification for structured data and medical AI.">
   <meta name="keywords" content="Hongcheng Jiang, Applied AI Engineer, Machine Learning Engineer, LLM Agents, Agent Reliability, Multimodal AI, Clinical Imaging, UMKC">
   <meta name="author" content="Hongcheng Jiang" />
-  <meta property="og:title" content="Hongcheng Jiang | Applied AI / Machine Learning Engineer">
-  <meta property="og:description" content="Applied AI Engineer working on reliable LLM agent systems and multimodal ML.">
+  <meta property="og:title" content="Hongcheng Jiang | Applied AI Engineer — LLM Agents &amp; Evaluation">
+  <meta property="og:description" content="Applied AI Engineer building and evaluating LLM agents for structured data and medical AI.">
   <meta property="og:image" content="https://jianghongcheng.github.io/images/me.jpg">
   <meta property="og:url" content="https://jianghongcheng.github.io/">
   <link rel="stylesheet" href="w3.css">
@@ -98,10 +98,11 @@
   <div class="w3-container w3-center w3-padding-32" id="home">
     <img style="width: 80%;max-width: 320px" alt="profile photo" src="images/me.jpg">
     <h1>Hongcheng Jiang</h1>
+    <p><strong>Applied AI Engineer | LLM Agents &amp; Evaluation</strong></p>
     <p><a class="w3-button w3-black" href="Hongcheng_Jiang_Resume.pdf">Download Resume (PDF)</a></p>
 
     <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
-    I am an <strong>Applied AI Engineer</strong> building <strong>tool-using LLM agents</strong> for SQL analysis and medical measurement. I implement bounded execution, repair loops, durable asynchronous workflows, and failure recovery, with reproducible evaluation and human review.
+    I am an <strong>Applied AI Engineer</strong> focused on <strong>LLM agents for structured data and medical AI</strong>. I build Python services with retrieval, verification, and evaluation to improve correctness and token efficiency.
     </p>
 
     <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
@@ -113,14 +114,14 @@
     </p>
 
     <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
-    My publication record includes <strong>6 first-author imaging papers</strong>, spanning image restoration, remote sensing, and multimodal learning, alongside work on clinical named-entity recognition. <strong>GeoVIRA has been submitted to WACV 2027.</strong>
+    My publication record includes <strong>8 peer-reviewed publications, including 6 first-author imaging papers</strong>, spanning image restoration, remote sensing, and multimodal learning, alongside work on clinical named-entity recognition. <strong>GeoVIRA has been submitted to WACV 2027.</strong>
     </p>
 
     <p>Based in Kansas City, MO · Open to relocation and remote work<br><strong>U.S. Permanent Resident (no sponsorship required)</strong></p>
 
     <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
     <strong>Selected work</strong><br>
-    &nbsp;&nbsp;&#8250; <a href="https://github.com/jianghongcheng/SQL-Agent"><strong>SQL-Agent</strong></a> — a SQL Data Agent for registered SQLite sources, with bounded read-only execution, repair, and reviewable results.<br>
+    &nbsp;&nbsp;&#8250; <a href="https://github.com/jianghongcheng/SQL-Agent"><strong>SQL-Agent</strong></a> — a LangGraph Planner–Verifier agent with hybrid RAG, bounded repair, durable jobs, and human-approved database mutations.<br>
     &nbsp;&nbsp;&#8250; <a href="https://github.com/jianghongcheng/radmeasure-agent"><strong>RadMeasure</strong></a> — a medical imaging measurement agent for HVA and IMA, with geometric checks, execution records, and human review. Research prototype—not for patient care.
     </p>
 
@@ -136,14 +137,18 @@
   <div class="w3-container site-section" id="projects">
     <h2>Selected Projects</h2>
     <p class="w3-justify">
-    <strong><a href="https://github.com/jianghongcheng/SQL-Agent">SQL-Agent — SQL Data Agent</a></strong><br>
-    A <strong>Qwen3-14B natural-language SQL agent</strong> with browser and FastAPI/MCP interfaces for revenue totals, order lists, grouped summaries, and result review on registered SQLite data. Schema-aware generate–execute–repair loops enforce read-only authorization and query/output limits, with up to three attempts on a consistent data snapshot. General answers require human review.
+    <strong><a href="https://github.com/jianghongcheng/SQL-Agent">SQL-Agent — LangGraph SQL Agent</a></strong><br>
+    Initially an internal text-to-SQL prototype, SQL-Agent evolved into a <strong>LangGraph Planner–Verifier agent</strong> with browser/FastAPI/MCP interfaces, bounded repair, user clarification, durable jobs, and human-approved database mutations.
     </p>
-    <p>Durable asynchronous execution includes idempotent jobs, renewable worker leases, retries, and <strong>stale-worker write protection</strong>, tested through worker termination, restart, duplicate-request, and timeout scenarios.</p>
-    <p><strong>Configuration evaluation:</strong> 142/156 correct runs (91.0%), versus 102/156 (65.4%) for the single-pass Coder baseline, on 26 known development questions × 2 database instances × 3 trials. The selected configuration's p95 latency was 74.8 seconds, motivating asynchronous delivery. This is a configuration comparison—not a single-factor ablation, unseen benchmark, or production accuracy claim.</p>
+    <ul>
+      <li><strong>Retrieval evaluation:</strong> BM25/vector hybrid retrieval with cross-encoder reranking and database/table filtering improved Hit@1 from <strong>68.8% to 93.8%</strong> on 16 fixed queries. Downstream SQL correctness did not improve (21/48 → 19/48), separating retrieval quality from end-task accuracy.</li>
+      <li><strong>Agent correctness:</strong> On 48 fixed development cases across six task families using BM25, improved SQL correctness from <strong>43.8% to 72.9% (21/48 → 35/48)</strong> and reduced tokens per correct task by <strong>35.9% (6,629 → 4,250)</strong>, with client p95 latency remaining approximately <strong>5.9 s</strong>.</li>
+      <li><strong>Reliability validation:</strong> Implemented gateway-isolated approved writes, transactional idempotency, and durable async jobs; verified recovery under worker termination, restart, duplicate requests, and timeouts. Completed <strong>100/100 scripted jobs at concurrency 8</strong> in local Docker and passed <strong>402 automated tests</strong>.</li>
+    </ul>
+    <p>The accuracy figures describe a fixed development set; the Docker results describe local scripted workload validation. See the <a href="https://github.com/jianghongcheng/SQL-Agent/tree/main/docs/evidence/2026-09-09">reproducible evaluation evidence</a> for results and conditions.</p>
     <p class="w3-justify">
     <strong><a href="https://github.com/jianghongcheng/radmeasure-agent">RadMeasure — Medical Imaging Measurement Agent</a></strong><br>
-    Constrains LLM-proposed actions to registered medical protocols and tools. A <strong>KEEP/REPAIR/STOP controller</strong> combines geometry verification, repair budgets, independent-proposal checks, human review, and execution traces. Supported foot measurements include hallux valgus and intermetatarsal angles.
+    A <strong>KEEP/REPAIR/STOP controller</strong> constrains LLM actions to registered protocols and tools, verifies measurement geometry, and routes unresolved cases to human review. Repair attempts are bounded and execution traces are recorded for audit. Supported foot measurements include hallux valgus and intermetatarsal angles.
     </p>
     <p><strong>Offline selective-repair study:</strong> A learned repair policy selected 106/528 prediction records (20.1%) from 176 archived cases, with <strong>0.69° mean error reduction among selected records</strong>; overall MAE fell from <strong>2.68° to 2.54°</strong>. This historical study evaluates a learned selection policy, not the current rule-based controller or end-to-end clinical accuracy.
     </p>
@@ -153,9 +158,9 @@
     </p>
 
     <p class="w3-justify">
-    <strong>Agent Systems:</strong> Tool Calling, MCP, Structured Outputs, Execution Control, Bounded Repair, Agent Evaluation<br>
-    <strong>Engineering:</strong> Python, SQL, FastAPI, SQLite, Async Workers, Docker, Linux, Git<br>
-    <strong>ML:</strong> PyTorch, Hugging Face, vLLM, Ollama, Computer Vision, Diffusion Models, Vision Transformers
+    <strong>Agent Systems:</strong> LangGraph, MCP, Tool Calling, Hybrid RAG, Reranking, Bounded Repair, Structured Outputs, Evaluation Harnesses, Guardrails, Execution Tracing<br>
+    <strong>Engineering:</strong> Python, SQL, FastAPI, SQLite, PostgreSQL, Async Workers, Docker, Linux, Git<br>
+    <strong>ML:</strong> PyTorch, Hugging Face, QLoRA/PEFT, vLLM, Ollama, Vision Transformers, Diffusion Models
     </p>
   </div>
 
@@ -182,7 +187,7 @@
     <h4>University of Missouri–Kansas City · Jun 2026 – Present</h4>
     <p><strong>Research Associate (Postdoctoral Researcher)</strong> · Kansas City, MO<br>Developing RadMeasure's controlled medical measurement workflows and evaluating geometry-repair policies; researching geometry–visual interfaces in GeoVIRA.</p>
     <h4>NextTier — IT Solutions Consultancy · Jun 2025 – May 2026</h4>
-    <p><strong>Machine Learning Engineer</strong> · Sacramento, CA (Remote)<br>Built SQL-Agent as an internal prototype for model-backed SQL generation, bounded execution and repair, durable asynchronous jobs, and reviewable results.</p>
+    <p><strong>Machine Learning Engineer</strong> · Sacramento, CA (Remote)<br>Built SQL-Agent, initially an internal text-to-SQL prototype; evolved it into a LangGraph Planner–Verifier agent with hybrid retrieval, bounded repair, user clarification, durable async jobs, and human-approved database mutations. Evaluation results are detailed in <a href="#projects">Selected Projects</a>.</p>
     <h4>University of Missouri–Kansas City · Jan 2020 – May 2025</h4>
     <p><strong>Graduate Research Assistant</strong> · Kansas City, MO<br>Developed and trained transformer- and diffusion-based models for thermal super-resolution, hyperspectral pansharpening, and NIR-to-RGB translation. Co-authored a fully connected LSTM–CRF for clinical named-entity recognition, achieving <strong>84.15% F1 on i2b2/VA</strong>.</p>
   </div>
@@ -191,7 +196,7 @@
   <div class="w3-container site-section" id="research">
     <h2>Research</h2>
     <p class="w3-left-align" style="line-height:200%">
-    For <strong>GeoVIRA</strong>, I developed and trained geometry-conditioned models over a <strong>frozen medical image encoder</strong>, comparing cross-attention with measurement-aligned feature sampling for radiographic angle estimation. Evaluation uses five-fold out-of-fold landmark predictions, three paired detector/model seeds, and matched-versus-shuffled controls to test case-specific visual contributions. The foot dataset uses patient-level splits; the spine dataset uses image-level splits because patient identifiers are unavailable. Earlier research covers image restoration, hyperspectral pansharpening, NIR-to-RGB translation, and clinical NLP.
+    For <strong>GeoVIRA</strong>, I developed and trained geometry-conditioned models over a <strong>frozen medical image encoder</strong>, comparing cross-attention with measurement-aligned feature sampling for radiographic angle estimation. Evaluation uses five-fold out-of-fold landmark predictions, three paired detector/model seeds, and matched-versus-shuffled controls to test case-specific visual contributions. The foot dataset uses patient-level splits; the spine dataset uses image-level splits because patient identifiers are unavailable. Conditioning frozen visual features on geometry priors reduced geometry-only MAE by <strong>13.5–25.1%</strong> across hallux valgus, intermetatarsal, and spinal Cobb angle tasks. Earlier research covers image restoration, hyperspectral pansharpening, NIR-to-RGB translation, and clinical NLP.
     </p>
 
     <h4>Submitted Manuscript:</h4>
