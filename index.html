@@ -141,7 +141,7 @@
     Initially an internal text-to-SQL prototype, SQL-Agent evolved into a <strong>LangGraph Planner–Verifier agent</strong> with browser/FastAPI/MCP interfaces, bounded repair, user clarification, durable jobs, and human-approved database mutations.
     </p>
     <ul>
-      <li><strong>Retrieval evaluation:</strong> BM25/vector hybrid retrieval with cross-encoder reranking and database/table filtering improved Hit@1 from <strong>68.8% to 93.8%</strong> on 16 fixed queries. Downstream SQL correctness did not improve (21/48 → 19/48), separating retrieval quality from end-task accuracy.</li>
+      <li><strong>Retrieval evaluation:</strong> BM25/vector hybrid retrieval with cross-encoder reranking and database/table filtering improved Hit@1 from <strong>68.8% to 93.8%</strong> on 16 fixed queries.</li>
       <li><strong>Agent correctness:</strong> On 48 fixed development cases across six task families using BM25, improved SQL correctness from <strong>43.8% to 72.9% (21/48 → 35/48)</strong> and reduced tokens per correct task by <strong>35.9% (6,629 → 4,250)</strong>, with client p95 latency remaining approximately <strong>5.9 s</strong>.</li>
       <li><strong>Reliability validation:</strong> Implemented gateway-isolated approved writes, transactional idempotency, and durable async jobs; verified recovery under worker termination, restart, duplicate requests, and timeouts. Completed <strong>100/100 scripted jobs at concurrency 8</strong> in local Docker and passed <strong>402 automated tests</strong>.</li>
     </ul>
