@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-  <title>Hongcheng Jiang | Applied AI Engineer — LLM Agents &amp; Evaluation</title>
+  <title>Hongcheng Jiang | AI Engineer — GenAI, RAG &amp; Agentic Systems</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="description" content="Hongcheng Jiang - Applied AI Engineer building and evaluating LangGraph agents, hybrid RAG, and verification for structured data and medical AI.">
+  <meta name="description" content="Hongcheng Jiang - AI Engineer with a Ph.D. in ECE, building LLM agents, RAG applications, and multimodal models with automated evaluation and reliable Python services.">
   <meta name="keywords" content="Hongcheng Jiang, Applied AI Engineer, Machine Learning Engineer, LLM Agents, Agent Reliability, Multimodal AI, Clinical Imaging, UMKC">
   <meta name="author" content="Hongcheng Jiang" />
-  <meta property="og:title" content="Hongcheng Jiang | Applied AI Engineer — LLM Agents &amp; Evaluation">
-  <meta property="og:description" content="Applied AI Engineer building and evaluating LLM agents for structured data and medical AI.">
+  <meta property="og:title" content="Hongcheng Jiang | AI Engineer — GenAI, RAG &amp; Agentic Systems">
+  <meta property="og:description" content="AI Engineer building LLM agents, RAG applications, and multimodal models with automated evaluation and reliable Python services.">
   <meta property="og:image" content="https://jianghongcheng.github.io/images/me.jpg">
   <meta property="og:url" content="https://jianghongcheng.github.io/">
   <link rel="stylesheet" href="w3.css">
@@ -55,7 +55,7 @@
     }
   }
   </style>
-  <link rel="icon" type="image/png" href="images/icons.png">
+  <link rel="icon" type="image/jpeg" href="images/me.jpg">
 </head>
 
 <body class="w3-content" style="max-width:1000px">
@@ -98,11 +98,11 @@
   <div class="w3-container w3-center w3-padding-32" id="home">
     <img style="width: 80%;max-width: 320px" alt="profile photo" src="images/me.jpg">
     <h1>Hongcheng Jiang</h1>
-    <p><strong>Applied AI Engineer | LLM Agents &amp; Evaluation</strong></p>
+    <p><strong>AI Engineer | GenAI, RAG &amp; Agentic Systems | Multimodal AI</strong></p>
     <p><a class="w3-button w3-black" href="Hongcheng_Jiang_Resume.pdf">Download Resume (PDF)</a></p>
 
     <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
-    I am an <strong>Applied AI Engineer</strong> focused on <strong>LLM agents for structured data and medical AI</strong>. I build Python services with retrieval, verification, and evaluation to improve correctness and token efficiency.
+    I am an <strong>AI Engineer with 6+ years across AI research and engineering</strong>, including one year of industry ML engineering experience. I build <strong>LLM agents and RAG applications</strong> with Python, FastAPI, automated evaluation, and controlled execution. My work combines deep-learning research with backend engineering to improve accuracy, token efficiency, and reliability.
     </p>
 
     <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
@@ -114,7 +114,7 @@
     </p>
 
     <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
-    My publication record includes <strong>8 peer-reviewed publications, including 6 first-author imaging papers</strong>, spanning image restoration, remote sensing, and multimodal learning, alongside work on clinical named-entity recognition. <strong>GeoVIRA has been submitted to WACV 2027.</strong>
+    My published research spans <strong>transformers, diffusion models, multimodal vision, medical imaging, and remote sensing</strong>, alongside work on clinical named-entity recognition. <strong>GeoVIRA has been submitted to WACV 2027.</strong>
     </p>
 
     <p>Based in Kansas City, MO · Open to relocation and remote work<br><strong>U.S. Permanent Resident (no sponsorship required)</strong></p>
@@ -137,20 +137,21 @@
   <div class="w3-container site-section" id="projects">
     <h2>Selected Projects</h2>
     <p class="w3-justify">
-    <strong><a href="https://github.com/jianghongcheng/SQL-Agent">SQL-Agent — LangGraph SQL Agent</a></strong><br>
-    Initially an internal text-to-SQL prototype, SQL-Agent evolved into a <strong>LangGraph Planner–Verifier agent</strong> with browser/FastAPI/MCP interfaces, bounded repair, user clarification, durable jobs, and human-approved database mutations.
+    <strong><a href="https://github.com/jianghongcheng/SQL-Agent">SQL-Agent — Text-to-SQL Agent &amp; Evaluation</a></strong><br>
+    A <strong>LangGraph Planner–Verifier agent</strong> with schema grounding, bounded repair, user clarification, browser/FastAPI/MCP interfaces, and durable background jobs. The online workflow supports guarded reads and database changes that require impact preview and human approval before transactional execution.
     </p>
     <ul>
-      <li><strong>Retrieval evaluation:</strong> BM25/vector hybrid retrieval with cross-encoder reranking and database/table filtering improved Hit@1 from <strong>68.8% to 93.8%</strong> on 16 fixed queries.</li>
-      <li><strong>Agent correctness:</strong> On 48 fixed development cases across six task families using BM25, improved SQL correctness from <strong>43.8% to 72.9% (21/48 → 35/48)</strong> and reduced tokens per correct task by <strong>35.9% (6,629 → 4,250)</strong>, with client p95 latency remaining approximately <strong>5.9 s</strong>.</li>
-      <li><strong>Reliability validation:</strong> Implemented gateway-isolated approved writes, transactional idempotency, and durable async jobs; verified recovery under worker termination, restart, duplicate requests, and timeouts. Completed <strong>100/100 scripted jobs at concurrency 8</strong> in local Docker and passed <strong>402 automated tests</strong>.</li>
+      <li><strong>Public benchmark:</strong> On <strong>500 official BIRD Mini-Dev questions</strong>, a <strong>Qwen3-4B Planner and Qwen2.5-Coder-7B Verifier</strong> achieved <strong>39.2% execution accuracy (196/500)</strong>, versus <strong>36.0% (180/500)</strong> for the local PV-SQL configuration.</li>
+      <li><strong>Token efficiency and latency:</strong> Used <strong>64.5% fewer tokens per correct task</strong> (6,763 vs. 19,025), with <strong>3.66 s p95 latency</strong> versus 8.67 s. Token accounting includes recorded model calls and retries.</li>
+      <li><strong>Optional retrieval:</strong> BM25/vector hybrid retrieval, cross-encoder reranking, and database/table filtering. Separate retrieval evaluation improved <strong>Hit@1 from 68.75% to 93.75%</strong> on 16 fixed synthetic queries.</li>
+      <li><strong>Engineering:</strong> Docker deployment, GitHub Actions continuous integration, pytest unit and integration tests, health checks, metrics endpoints, and execution traces. Persistent jobs, renewable worker leases, and transactional idempotency support recovery and prevent duplicate writes.</li>
     </ul>
-    <p>The accuracy figures describe a fixed development set; the Docker results describe local scripted workload validation. See the <a href="https://github.com/jianghongcheng/SQL-Agent/tree/main/docs/evidence/2026-09-09">reproducible evaluation evidence</a> for results and conditions.</p>
+    <p>The BIRD comparison used full schema context without RAG; PV-SQL used Qwen3-4B across its stages. These are local configuration results, not an official leaderboard submission. Gold SQL was used only for scoring after inference. See the <a href="https://github.com/jianghongcheng/SQL-Agent/tree/main/docs/evidence/2026-09-13">configuration and evaluation evidence</a>.</p>
     <p class="w3-justify">
     <strong><a href="https://github.com/jianghongcheng/radmeasure-agent">RadMeasure — Medical Imaging Measurement Agent</a></strong><br>
     A <strong>KEEP/REPAIR/STOP controller</strong> constrains LLM actions to registered protocols and tools, verifies measurement geometry, and routes unresolved cases to human review. Repair attempts are bounded and execution traces are recorded for audit. Supported foot measurements include hallux valgus and intermetatarsal angles.
     </p>
-    <p><strong>Offline selective-repair study:</strong> A learned repair policy selected 106/528 prediction records (20.1%) from 176 archived cases, with <strong>0.69° mean error reduction among selected records</strong>; overall MAE fell from <strong>2.68° to 2.54°</strong>. This historical study evaluates a learned selection policy, not the current rule-based controller or end-to-end clinical accuracy.
+    <p><strong>Offline selective-repair study:</strong> A learned repair policy selected 106/528 prediction records (20.1%) from 176 archived <strong>HVAngleEst</strong> cases, with <strong>0.69° mean error reduction among selected records</strong>; overall MAE fell from <strong>2.68° to 2.54°</strong>. This historical study evaluates a learned selection policy, not the current rule-based controller or end-to-end clinical accuracy.
     </p>
 
     <p class="w3-justify">
@@ -159,7 +160,8 @@
 
     <p class="w3-justify">
     <strong>Agent Systems:</strong> LangGraph, MCP, Tool Calling, Hybrid RAG, Reranking, Bounded Repair, Structured Outputs, Evaluation Harnesses, Guardrails, Execution Tracing<br>
-    <strong>Engineering:</strong> Python, SQL, FastAPI, SQLite, PostgreSQL, Async Workers, Docker, Linux, Git<br>
+    <strong>Backend:</strong> Python, SQL, FastAPI, REST APIs, SQLite, PostgreSQL, Async Workers, Docker, Linux<br>
+    <strong>Testing &amp; Delivery:</strong> Git, GitHub Actions (CI), pytest, Unit &amp; Integration Testing, Execution Tracing, Token/Latency Monitoring<br>
     <strong>ML:</strong> PyTorch, Hugging Face, QLoRA/PEFT, vLLM, Ollama, Vision Transformers, Diffusion Models
     </p>
   </div>
@@ -168,7 +170,7 @@
   <div class="w3-container w3-light-grey site-section" id="news">
     <h2>News</h2>
     <ul>
-      <li>09/2026, Updated my <a href="Hongcheng_Jiang_Resume.pdf">Applied AI Engineer resume</a> and project evaluations.</li>
+      <li>09/2026, Published <a href="https://github.com/jianghongcheng/SQL-Agent/tree/main/docs/evidence/2026-09-13">SQL-Agent evaluation on 500 BIRD Mini-Dev questions</a>, comparing execution accuracy, token efficiency, and latency with a local PV-SQL configuration.</li>
       <li>06/2026, Started as Research Associate (Postdoctoral Researcher) at UMKC.</li>
       <li>04/2026, 1 paper has been accepted by <strong><a href="https://pbvs-workshop.github.io/">CVPRW (PBVS) 2026</a></strong>.</li>
       <li>10/2025, 1 paper has been accepted by <strong><a href="https://www.ieeesmc2025.org/">IEEE SMC 2025</a></strong>.</li>
@@ -187,7 +189,7 @@
     <h4>University of Missouri–Kansas City · Jun 2026 – Present</h4>
     <p><strong>Research Associate (Postdoctoral Researcher)</strong> · Kansas City, MO<br>Developing RadMeasure's controlled medical measurement workflows and evaluating geometry-repair policies; researching geometry–visual interfaces in GeoVIRA.</p>
     <h4>NextTier — IT Solutions Consultancy · Jun 2025 – May 2026</h4>
-    <p><strong>Machine Learning Engineer</strong> · Sacramento, CA (Remote)<br>Built SQL-Agent, initially an internal text-to-SQL prototype; evolved it into a LangGraph Planner–Verifier agent with hybrid retrieval, bounded repair, user clarification, durable async jobs, and human-approved database mutations. Evaluation results are detailed in <a href="#projects">Selected Projects</a>.</p>
+    <p><strong>Machine Learning Engineer</strong> · Sacramento, CA (Remote)<br>Owned the design and implementation of a natural-language SQL assistant for revenue analysis, order lookup, and grouped reporting. Work spanned scoped retrieval, LangGraph orchestration, FastAPI/MCP interfaces, controlled database execution, and durable asynchronous workers. Subsequent public project evaluations are presented separately in <a href="#projects">Selected Projects</a>.</p>
     <h4>University of Missouri–Kansas City · Jan 2020 – May 2025</h4>
     <p><strong>Graduate Research Assistant</strong> · Kansas City, MO<br>Developed and trained transformer- and diffusion-based models for thermal super-resolution, hyperspectral pansharpening, and NIR-to-RGB translation. Co-authored a fully connected LSTM–CRF for clinical named-entity recognition, achieving <strong>84.15% F1 on i2b2/VA</strong>.</p>
   </div>
