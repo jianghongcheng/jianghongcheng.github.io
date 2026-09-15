@@ -68,7 +68,6 @@
   <div class="w3-padding-64 w3-text-light-grey w3-large" style="font-weight:bold">
     <p>
       <a href="#home" class="w3-bar-item w3-button">Home</a>
-      <a href="#projects" class="w3-bar-item w3-button">Selected Projects</a>
       <a href="#news" class="w3-bar-item w3-button">News</a>
       <a href="#experience" class="w3-bar-item w3-button">Experience</a>
       <a href="#research" class="w3-bar-item w3-button">Research</a>
@@ -131,39 +130,6 @@
     </p>
   </div>
 
-  <!-- The Projects Section -->
-  <div class="w3-container site-section" id="projects">
-    <h2>Selected Projects</h2>
-    <p class="w3-justify">
-    <strong><a href="https://github.com/jianghongcheng/SQL-Agent">SQL-Agent — Text-to-SQL Agent &amp; Evaluation</a></strong><br>
-    A <strong>LangGraph Planner–Verifier agent</strong> with schema grounding, bounded repair, user clarification, browser/FastAPI/MCP interfaces, and durable background jobs. The online workflow supports guarded reads and database changes that require impact preview and human approval before transactional execution.
-    </p>
-    <ul>
-      <li><strong>Public benchmark:</strong> On <strong>500 official BIRD Mini-Dev questions</strong>, a <strong>Qwen3-4B Planner and Qwen2.5-Coder-7B Verifier</strong> achieved <strong>39.2% execution accuracy (196/500)</strong>, versus <strong>36.0% (180/500)</strong> for the local PV-SQL configuration.</li>
-      <li><strong>Token efficiency and latency:</strong> Used <strong>64.5% fewer tokens per correct task</strong> (6,763 vs. 19,025), with <strong>3.66 s p95 latency</strong> versus 8.67 s. Token accounting includes recorded model calls and retries.</li>
-      <li><strong>Optional retrieval:</strong> BM25/vector hybrid retrieval, cross-encoder reranking, and database/table filtering. Separate retrieval evaluation improved <strong>Hit@1 from 68.75% to 93.75%</strong> on 16 fixed synthetic queries.</li>
-      <li><strong>Engineering:</strong> Docker deployment, GitHub Actions continuous integration, pytest unit and integration tests, health checks, metrics endpoints, and execution traces. Persistent jobs, renewable worker leases, and transactional idempotency support recovery and prevent duplicate writes.</li>
-    </ul>
-    <p>The BIRD comparison used full schema context without RAG; PV-SQL used Qwen3-4B across its stages. These are local configuration results, not an official leaderboard submission. Gold SQL was used only for scoring after inference. See the <a href="https://github.com/jianghongcheng/SQL-Agent/tree/main/docs/evidence/2026-09-13">configuration and evaluation evidence</a>.</p>
-    <p class="w3-justify">
-    <strong><a href="https://github.com/jianghongcheng/radmeasure-agent">RadMeasure — Medical Imaging Measurement Agent</a></strong><br>
-    A <strong>KEEP/REPAIR/STOP controller</strong> constrains LLM actions to registered protocols and tools, verifies measurement geometry, and routes unresolved cases to human review. Repair attempts are bounded and execution traces are recorded for audit. Supported foot measurements include hallux valgus and intermetatarsal angles.
-    </p>
-    <p><strong>Offline selective-repair study:</strong> A learned repair policy selected 106/528 prediction records (20.1%) from 176 archived <strong>HVAngleEst</strong> cases, with <strong>0.69° mean error reduction among selected records</strong>; overall MAE fell from <strong>2.68° to 2.54°</strong>. This historical study evaluates a learned selection policy, not the current rule-based controller or end-to-end clinical accuracy.
-    </p>
-
-    <p class="w3-justify">
-    <em>Research prototype. Not a medical device, and not approved for diagnosis or patient care.</em>
-    </p>
-
-    <p class="w3-justify">
-    <strong>Agent Systems:</strong> LangGraph, MCP, Tool Calling, Hybrid RAG, Reranking, Bounded Repair, Structured Outputs, Evaluation Harnesses, Guardrails, Execution Tracing<br>
-    <strong>Backend:</strong> Python, SQL, FastAPI, REST APIs, SQLite, PostgreSQL, Async Workers, Docker, Linux<br>
-    <strong>Testing &amp; Delivery:</strong> Git, GitHub Actions (CI), pytest, Unit &amp; Integration Testing, Execution Tracing, Token/Latency Monitoring<br>
-    <strong>ML:</strong> PyTorch, Hugging Face, QLoRA/PEFT, vLLM, Ollama, Vision Transformers, Diffusion Models
-    </p>
-  </div>
-
   <!-- The News Section -->
   <div class="w3-container w3-light-grey site-section" id="news">
     <h2>News</h2>
@@ -187,7 +153,7 @@
     <h4>University of Missouri–Kansas City · Jun 2026 – Present</h4>
     <p><strong>Research Associate (Postdoctoral Researcher)</strong> · Kansas City, MO<br>Developing RadMeasure's controlled medical measurement workflows and evaluating geometry-repair policies; researching geometry–visual interfaces in GeoVIRA.</p>
     <h4>NextTier — IT Solutions Consultancy · Jun 2025 – May 2026</h4>
-    <p><strong>Machine Learning Engineer</strong> · Sacramento, CA (Remote)<br>Owned the design and implementation of a natural-language SQL assistant for revenue analysis, order lookup, and grouped reporting. Work spanned scoped retrieval, LangGraph orchestration, FastAPI/MCP interfaces, controlled database execution, and durable asynchronous workers. Subsequent public project evaluations are presented separately in <a href="#projects">Selected Projects</a>.</p>
+    <p><strong>Machine Learning Engineer</strong> · Sacramento, CA (Remote)<br>Owned the design and implementation of a natural-language SQL assistant for revenue analysis, order lookup, and grouped reporting. Work spanned scoped retrieval, LangGraph orchestration, FastAPI/MCP interfaces, controlled database execution, and durable asynchronous workers.</p>
     <h4>University of Missouri–Kansas City · Jan 2020 – May 2025</h4>
     <p><strong>Graduate Research Assistant</strong> · Kansas City, MO<br>Developed and trained transformer- and diffusion-based models for thermal super-resolution, hyperspectral pansharpening, and NIR-to-RGB translation. Co-authored a fully connected LSTM–CRF for clinical named-entity recognition, achieving <strong>84.15% F1 on i2b2/VA</strong>.</p>
   </div>
