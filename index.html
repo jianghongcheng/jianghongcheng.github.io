@@ -149,12 +149,29 @@
 
   <div class="w3-container site-section" id="experience">
     <h2>Experience</h2>
-    <h4>University of Missouri–Kansas City · Jun 2026 – Present</h4>
-    <p><strong>Research Associate (Postdoctoral Researcher)</strong> · Kansas City, MO<br>Developing RadMeasure's controlled medical measurement workflows and evaluating geometry-repair policies; researching geometry–visual interfaces in GeoVIRA.</p>
-    <h4>NextTier — IT Solutions Consultancy · Jun 2025 – May 2026</h4>
-    <p><strong>Machine Learning Engineer</strong> · Sacramento, CA (Remote)<br>Owned the design and implementation of a natural-language SQL assistant for revenue analysis, order lookup, and grouped reporting. Work spanned scoped retrieval, LangGraph orchestration, FastAPI/MCP interfaces, controlled database execution, and durable asynchronous workers.</p>
+    <h4>University of Missouri–Kansas City · June 2026 – Present</h4>
+    <p><strong>Research Associate</strong> · Kansas City, MO</p>
+    <ul>
+      <li><strong>Medical AI:</strong> Developed GeoVIRA for automated foot and spine angle measurement from radiographs, combining predicted anatomical landmarks with frozen medical image features.</li>
+      <li><strong>Model Engineering:</strong> Designed a relational geometry encoder capturing landmark distances, orientations, and angular relationships; implemented <strong>geometry-conditioned cross-attention</strong> and measurement-aligned visual feature sampling.</li>
+      <li><strong>Data Pipelines:</strong> Prepared radiographic datasets and built training pipelines with patient-disjoint foot splits and <strong>out-of-fold landmark predictions</strong> to avoid in-sample detector outputs during downstream model training.</li>
+      <li><strong>Model Evaluation:</strong> Evaluated geometry-only and geometry–visual models through baseline comparisons, component ablations, and matched-versus-shuffled visual controls to assess the contribution of case-specific image features.</li>
+    </ul>
+    <h4>NextTier – IT Solutions Consultancy · June 2025 – May 2026</h4>
+    <p><strong>Machine Learning Engineer</strong> · Sacramento, CA (Remote)</p>
+    <ul>
+      <li><strong>Applied NLP:</strong> Built a natural-language SQL assistant for revenue analysis, order lookup, and grouped reporting, combining retrieval, agent orchestration, and evaluation.</li>
+      <li><strong>Retrieval &amp; Reasoning:</strong> Implemented <strong>BM25/vector retrieval with cross-encoder reranking</strong> and <strong>LangGraph Planner–Verifier workflows</strong>, with scoped context, independent result checking, clarification, and bounded repair.</li>
+      <li><strong>ML Systems:</strong> Built FastAPI/MCP services with durable asynchronous jobs, worker recovery, read-only query controls, and human-approved mutations backed by transactional idempotency.</li>
+    </ul>
     <h4>University of Missouri–Kansas City · Jan 2020 – May 2025</h4>
-    <p><strong>Graduate Research Assistant</strong> · Kansas City, MO<br>Developed and trained transformer- and diffusion-based models for thermal super-resolution, hyperspectral pansharpening, and NIR-to-RGB translation. Co-authored a fully connected LSTM–CRF for clinical named-entity recognition, achieving <strong>84.15% F1 on i2b2/VA</strong>.</p>
+    <p><strong>Graduate Research Assistant</strong> · Kansas City, MO</p>
+    <ul>
+      <li><strong>Vision &amp; Generative Modeling:</strong> Developed <strong>transformer- and diffusion-based models</strong> for thermal super-resolution, hyperspectral restoration, and NIR-to-RGB translation, evaluating spatial detail and spectral fidelity.</li>
+      <li><strong>Clinical NLP:</strong> Co-developed an <strong>LSTM–CRF</strong> model for medical concept extraction from clinical text, modeling contextual dependencies and structured label sequences.</li>
+      <li><strong>ML Engineering:</strong> Built training and evaluation pipelines covering preprocessing, augmentation, hyperparameter experiments, baseline comparisons, and ablation studies.</li>
+      <li><strong>Research Publications:</strong> Authored and co-authored peer-reviewed papers on image reconstruction, cross-spectral translation, remote sensing, and clinical NLP.</li>
+    </ul>
   </div>
 
   <!-- The Publications Section -->
